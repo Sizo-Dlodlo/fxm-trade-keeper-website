@@ -35,10 +35,10 @@ export default function KeyFeatures() {
   return (
     <section className="w-full py-24 px-4 md:px-margin-desktop max-w-container-max mx-auto">
       <div className="text-center mb-16">
-        <h2 className="font-display text-headline-md text-on-surface mb-2">
+        <h2 className="font-headline-md text-headline-md text-on-surface mb-2">
           Everything You Need
         </h2>
-        <p className="font-body text-body-md text-on-surface-variant">
+        <p className="font-body-md text-body-md text-on-surface-variant">
           Professional-grade tools for tracking and improving your trading.
         </p>
       </div>
@@ -55,10 +55,10 @@ export default function KeyFeatures() {
                 {feature.icon}
               </span>
             </div>
-            <h3 className="font-display text-headline-md text-on-surface mb-3">
+            <h3 className="font-headline-md text-lg text-on-surface mb-3">
               {feature.title}
             </h3>
-            <p className="font-body text-body-md text-on-surface-variant">
+            <p className="font-body-md text-body-md text-on-surface-variant">
               {feature.description}
             </p>
           </div>

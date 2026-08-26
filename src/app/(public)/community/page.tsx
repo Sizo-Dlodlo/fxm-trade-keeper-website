@@ -17,26 +17,23 @@ const featureRequests = [
 
 export default function CommunityPage() {
   return (
-    <>
+    <main className="flex-grow w-full max-w-container-max mx-auto px-4 md:px-margin-desktop py-12 md:py-20 flex flex-col gap-gutter">
       {/* Hero */}
-      <header className="relative py-24 px-4 md:px-margin-desktop overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(118,219,150,0.1)_0%,rgba(17,19,25,0)_70%)] pointer-events-none" />
-        <div className="max-w-container-max mx-auto relative z-10 text-center flex flex-col items-center">
-          <span className="font-mono text-label-caps bg-primary/10 text-primary px-3 py-1 rounded-full border border-primary/20 mb-6 tracking-widest uppercase">
-            Community Hub
-          </span>
-          <h1 className="font-display text-display-lg text-on-surface mb-6">
-            Shape the Future of Trade Keeper
-          </h1>
-          <p className="font-body text-body-lg text-on-surface-variant max-w-2xl">
-            Your feedback drives development. Request features, report bugs, and
-            connect with other traders.
-          </p>
-        </div>
+      <header className="flex flex-col items-center text-center max-w-3xl gap-6 z-10">
+        <span className="font-label-mono text-label-mono text-primary bg-primary/10 px-3 py-1 rounded">
+          COMMUNITY HUB
+        </span>
+        <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-2">
+          Shape the Future of Trade Keeper
+        </h1>
+        <p className="font-body-lg text-body-lg text-on-surface-variant">
+          Your feedback drives development. Request features, report bugs, and
+          connect with other traders.
+        </p>
       </header>
 
       {/* Community Hub */}
-      <section className="w-full pb-24 px-4 md:px-margin-desktop max-w-container-max mx-auto">
+      <section className="w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-16">
           {/* Feature Requests */}
           <Link
@@ -48,10 +45,10 @@ export default function CommunityPage() {
                 lightbulb
               </span>
             </div>
-            <h3 className="font-display text-lg text-on-surface mb-2">
+            <h3 className="font-headline-md text-lg text-on-surface mb-2">
               Feature Requests
             </h3>
-            <p className="font-body text-body-md text-on-surface-variant">
+            <p className="font-body-md text-body-md text-on-surface-variant">
               Suggest and vote on new features for Trade Keeper.
             </p>
           </Link>
@@ -66,10 +63,10 @@ export default function CommunityPage() {
                 bug_report
               </span>
             </div>
-            <h3 className="font-display text-lg text-on-surface mb-2">
+            <h3 className="font-headline-md text-lg text-on-surface mb-2">
               Bug Reports
             </h3>
-            <p className="font-body text-body-md text-on-surface-variant">
+            <p className="font-body-md text-body-md text-on-surface-variant">
               Found an issue? Report it here and we&apos;ll investigate.
             </p>
           </Link>
@@ -81,10 +78,10 @@ export default function CommunityPage() {
                 tips_and_updates
               </span>
             </div>
-            <h3 className="font-display text-lg text-on-surface mb-2">
+            <h3 className="font-headline-md text-lg text-on-surface mb-2">
               Trading Tips
             </h3>
-            <p className="font-body text-body-md text-on-surface-variant">
+            <p className="font-body-md text-body-md text-on-surface-variant">
               Share and discover journaling best practices.
             </p>
           </div>
@@ -93,12 +90,12 @@ export default function CommunityPage() {
         {/* Feature Roadmap */}
         <div id="features">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="font-display text-headline-md text-on-surface">
+            <h2 className="font-headline-md text-headline-md text-on-surface">
               Feature Roadmap
             </h2>
             <Link
               href="/contact"
-              className="text-primary font-medium hover:brightness-110 transition-all font-body text-body-md flex items-center gap-1"
+              className="text-primary font-medium hover:brightness-110 transition-all font-body-md text-body-md flex items-center gap-1"
             >
               Submit Request
               <span className="material-symbols-outlined text-sm">
@@ -116,16 +113,16 @@ export default function CommunityPage() {
                 <div className="flex items-center gap-4">
                   <button className="flex flex-col items-center gap-1 text-primary hover:brightness-110 transition-all">
                     <span className="material-symbols-outlined">expand_less</span>
-                    <span className="font-mono text-label-mono">{request.votes}</span>
+                    <span className="font-label-mono text-label-mono">{request.votes}</span>
                   </button>
                   <div>
-                    <h3 className="font-display text-lg text-on-surface">
+                    <h3 className="font-headline-md text-lg text-on-surface">
                       {request.title}
                     </h3>
                   </div>
                 </div>
                 <span
-                  className={`font-mono text-label-mono px-3 py-1 rounded-full ${
+                  className={`font-label-mono text-label-mono px-3 py-1 rounded-full ${
                     request.status === "In Progress"
                       ? "bg-primary/10 text-primary"
                       : request.status === "Planned"
@@ -140,6 +137,6 @@ export default function CommunityPage() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }

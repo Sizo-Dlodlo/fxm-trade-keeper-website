@@ -9,38 +9,35 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <>
+    <main className="flex-grow w-full max-w-container-max mx-auto px-4 md:px-margin-desktop py-12 md:py-20 flex flex-col gap-gutter">
       {/* Hero */}
-      <header className="relative py-24 px-4 md:px-margin-desktop overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(118,219,150,0.1)_0%,rgba(17,19,25,0)_70%)] pointer-events-none" />
-        <div className="max-w-container-max mx-auto relative z-10 text-center flex flex-col items-center">
-          <span className="font-mono text-label-caps bg-primary/10 text-primary px-3 py-1 rounded-full border border-primary/20 mb-6 tracking-widest uppercase">
-            About FX Momentum
-          </span>
-          <h1 className="font-display text-display-lg text-on-surface mb-6">
-            Built by Traders, Engineered for Precision
-          </h1>
-          <p className="font-body text-body-lg text-on-surface-variant max-w-2xl">
-            FX Momentum was founded with a simple mission: give retail traders
-            the same analytical tools that institutional desks take for granted.
-          </p>
-        </div>
+      <header className="flex flex-col items-center text-center max-w-3xl gap-6 z-10">
+        <span className="font-label-mono text-label-mono text-primary bg-primary/10 px-3 py-1 rounded">
+          ABOUT FX MOMENTUM
+        </span>
+        <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-2">
+          Built by Traders, Engineered for Precision
+        </h1>
+        <p className="font-body-lg text-body-lg text-on-surface-variant">
+          FX Momentum was founded with a simple mission: give retail traders
+          the same analytical tools that institutional desks take for granted.
+        </p>
       </header>
 
       {/* Mission */}
-      <section className="w-full py-24 px-4 md:px-margin-desktop max-w-container-max mx-auto">
+      <section className="w-full">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-headline-md text-on-surface mb-6">
+          <h2 className="font-headline-md text-headline-md text-on-surface mb-6">
             Our Mission
           </h2>
-          <p className="font-body text-body-lg text-on-surface-variant mb-6">
+          <p className="font-body-lg text-body-lg text-on-surface-variant mb-6">
             Professional journaling should be accessible to every trader,
             regardless of account size. FXM Trade Keeper was born out of
             frustration with existing solutions that were either overpriced,
             cloud-dependent, or lacked the analytical depth serious traders
             need.
           </p>
-          <p className="font-body text-body-lg text-on-surface-variant mb-6">
+          <p className="font-body-lg text-body-lg text-on-surface-variant mb-6">
             We believe your trading data is your most valuable asset. That&apos;s why
             Trade Keeper is built as a local-first application — your journal
             stays on your machine, under your control, always.
@@ -78,10 +75,10 @@ export default function AboutPage() {
                   {pillar.icon}
                 </span>
               </div>
-              <h3 className="font-display text-headline-md text-on-surface mb-3">
+              <h3 className="font-headline-md text-headline-md text-on-surface mb-3">
                 {pillar.title}
               </h3>
-              <p className="font-body text-body-md text-on-surface-variant">
+              <p className="font-body-md text-body-md text-on-surface-variant">
                 {pillar.description}
               </p>
             </div>
@@ -90,17 +87,17 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="w-full py-16 px-4 md:px-margin-desktop">
+      <section className="w-full py-16">
         <div className="max-w-container-max mx-auto text-center">
           <Link
             href="/download"
-            className="bg-primary text-on-primary font-display text-base px-8 py-4 rounded shadow-[0_0_20px_rgba(118,219,150,0.2)] hover:shadow-[0_0_30px_rgba(118,219,150,0.4)] hover:brightness-110 transition-all inline-flex items-center gap-2"
+            className="bg-primary text-on-primary font-headline-md text-base px-8 py-4 rounded shadow-[0_0_20px_rgba(118,219,150,0.2)] hover:shadow-[0_0_30px_rgba(118,219,150,0.4)] hover:brightness-110 transition-all inline-flex items-center gap-2"
           >
             <span className="material-symbols-outlined">download</span>
             Download Free
           </Link>
         </div>
       </section>
-    </>
+    </main>
   );
 }

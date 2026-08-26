@@ -36,10 +36,10 @@ export default function ValueProposition() {
     <section className="w-full py-24 px-4 md:px-margin-desktop bg-surface-container-lowest border-y border-surface-stroke/30">
       <div className="max-w-container-max mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-display text-headline-md text-on-surface mb-2">
+          <h2 className="font-headline-md text-headline-md text-on-surface mb-2">
             Journal. Analyze. Improve.
           </h2>
-          <p className="font-body text-body-md text-on-surface-variant">
+          <p className="font-body-md text-body-md text-on-surface-variant">
             The core pillars of professional trading performance.
           </p>
         </div>
@@ -56,10 +56,10 @@ export default function ValueProposition() {
                   {feature.icon}
                 </span>
               </div>
-              <h3 className="font-display text-lg text-on-surface">
+              <h3 className="font-headline-md text-lg text-on-surface">
                 {feature.title}
               </h3>
-              <p className="font-body text-body-md text-on-surface-variant flex-grow">
+              <p className="font-body-md text-body-md text-on-surface-variant flex-grow">
                 {feature.description}
               </p>
             </div>
@@ -69,7 +69,7 @@ export default function ValueProposition() {
         <div className="mt-16 text-center">
           <Link
             href="/features"
-            className="inline-flex items-center gap-2 text-primary font-medium hover:brightness-110 transition-all font-body text-body-md"
+            className="inline-flex items-center gap-2 text-primary font-medium hover:brightness-110 transition-all font-body-md text-body-md"
           >
             Explore all features
             <span className="material-symbols-outlined text-sm">

@@ -11,10 +11,10 @@ export default function ScreenshotGallery() {
   return (
     <section className="w-full py-24 px-4 md:px-margin-desktop max-w-container-max mx-auto">
       <div className="text-center mb-16">
-        <h2 className="font-display text-headline-md text-on-surface mb-2">
+        <h2 className="font-headline-md text-headline-md text-on-surface mb-2">
           See Trade Keeper in Action
         </h2>
-        <p className="font-body text-body-md text-on-surface-variant">
+        <p className="font-body-md text-body-md text-on-surface-variant">
           A clean, powerful interface designed for serious traders.
         </p>
       </div>
@@ -32,7 +32,7 @@ export default function ScreenshotGallery() {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-              <span className="font-display text-lg text-on-surface">
+              <span className="font-headline-md text-lg text-on-surface">
                 {screenshot.alt}
               </span>
             </div>
@@ -43,7 +43,7 @@ export default function ScreenshotGallery() {
       <div className="mt-12 text-center">
         <Link
           href="/screenshots"
-          className="inline-flex items-center gap-2 text-primary font-medium hover:brightness-110 transition-all font-body text-body-md"
+          className="inline-flex items-center gap-2 text-primary font-medium hover:brightness-110 transition-all font-body-md text-body-md"
         >
           View all screenshots
           <span className="material-symbols-outlined text-sm">

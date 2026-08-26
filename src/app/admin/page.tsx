@@ -47,10 +47,10 @@ export default function AdminDashboard() {
     <div className="max-w-container-max mx-auto">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="font-display text-headline-md text-on-surface mb-1">
+        <h1 className="font-headline-md text-headline-md text-on-surface mb-1">
           Platform Overview
         </h1>
-        <p className="font-body text-body-md text-on-surface-variant">
+        <p className="font-body-md text-body-md text-on-surface-variant">
           Live metrics and performance data
         </p>
       </div>
@@ -70,17 +70,17 @@ export default function AdminDashboard() {
                 </span>
               </div>
               <span
-                className={`font-mono text-label-mono ${
+                className={`font-label-mono text-label-mono ${
                   kpi.positive ? "text-data-up" : "text-data-down"
                 }`}
               >
                 {kpi.change}
               </span>
             </div>
-            <div className="font-display text-2xl text-on-surface font-bold mb-1">
+            <div className="font-headline-md text-2xl text-on-surface font-bold mb-1">
               {kpi.value}
             </div>
-            <div className="font-body text-body-md text-text-dimmed">
+            <div className="font-body-md text-body-md text-text-dimmed">
               {kpi.label}
             </div>
           </div>
@@ -90,14 +90,14 @@ export default function AdminDashboard() {
       {/* Traffic Chart */}
       <div className="bg-surface-container border border-surface-stroke rounded-xl p-6 mb-8">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="font-display text-lg text-on-surface">
+          <h2 className="font-headline-md text-lg text-on-surface">
             Traffic &amp; Downloads
           </h2>
           <div className="flex gap-2">
             {["7D", "30D", "1Y"].map((period) => (
               <button
                 key={period}
-                className={`px-3 py-1 rounded font-mono text-label-mono transition-colors ${
+                className={`px-3 py-1 rounded font-label-mono text-label-mono transition-colors ${
                   period === "30D"
                     ? "bg-primary/10 text-primary border border-primary/30"
                     : "bg-surface border border-surface-stroke text-text-dimmed hover:text-on-surface"
@@ -116,13 +116,13 @@ export default function AdminDashboard() {
               className="flex-1 bg-primary/30 rounded-t hover:bg-primary/50 transition-colors relative group"
               style={{ height: `${height}%` }}
             >
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 font-mono text-[10px] text-text-dimmed opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 font-label-mono text-[10px] text-text-dimmed opacity-0 group-hover:opacity-100 transition-opacity">
                 {Math.round(height * 14)}
               </div>
             </div>
           ))}
         </div>
-        <div className="flex justify-between mt-2 font-mono text-[10px] text-text-dimmed">
+        <div className="flex justify-between mt-2 font-label-mono text-[10px] text-text-dimmed">
           {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
             <span key={day}>{day}</span>
           ))}
@@ -131,7 +131,7 @@ export default function AdminDashboard() {
 
       {/* Recent Activity */}
       <div className="bg-surface-container border border-surface-stroke rounded-xl p-6">
-        <h2 className="font-display text-lg text-on-surface mb-6">
+        <h2 className="font-headline-md text-lg text-on-surface mb-6">
           Recent Activity
         </h2>
         <div className="space-y-4">
@@ -146,14 +146,14 @@ export default function AdminDashboard() {
                 </span>
               </div>
               <div className="flex-1 min-w-0">
-                <div className="font-body text-body-md text-on-surface font-medium">
+                <div className="font-body-md text-body-md text-on-surface font-medium">
                   {item.title}
                 </div>
-                <div className="font-body text-body-md text-text-dimmed truncate">
+                <div className="font-body-md text-body-md text-text-dimmed truncate">
                   {item.desc}
                 </div>
               </div>
-              <div className="font-mono text-label-mono text-text-dimmed whitespace-nowrap">
+              <div className="font-label-mono text-label-mono text-text-dimmed whitespace-nowrap">
                 {item.time}
               </div>
             </div>

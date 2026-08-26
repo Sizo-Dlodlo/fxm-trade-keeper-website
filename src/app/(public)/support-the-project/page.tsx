@@ -14,132 +14,134 @@ export default function SupportTheProjectPage() {
   ];
 
   return (
-    <>
-      {/* Hero */}
-      <header className="relative py-24 px-4 md:px-margin-desktop overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(118,219,150,0.1)_0%,rgba(17,19,25,0)_70%)] pointer-events-none" />
-        <div className="max-w-container-max mx-auto relative z-10 text-center flex flex-col items-center">
-          <span className="font-mono text-label-caps bg-primary/10 text-primary px-3 py-1 rounded-full border border-primary/20 mb-6 tracking-widest uppercase">
-            Support Development
-          </span>
-          <h1 className="font-display text-display-lg text-on-surface mb-6">
-            Keep FXM Independent
-          </h1>
-          <p className="font-body text-body-lg text-on-surface-variant max-w-2xl">
-            FXM Trade Keeper is free and will stay free. Your support helps us
-            maintain and improve the application. Your data never touches our
-            servers.
-          </p>
-        </div>
-      </header>
+    <main className="flex-grow flex flex-col items-center w-full max-w-container-max mx-auto px-4 md:px-margin-desktop py-12 md:py-24 gap-16 md:gap-24 relative overflow-hidden">
+      {/* Ambient Background Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10" />
 
-      {/* Support Section */}
-      <section className="w-full pb-24 px-4 md:px-margin-desktop max-w-container-max mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-          {/* Donation Card */}
-          <div className="lg:col-span-8">
-            <div className="bg-surface-container border border-surface-stroke rounded-xl p-8 relative overflow-hidden">
-              <div className="absolute right-0 top-0 w-64 h-64 bg-primary/5 rounded-bl-full -z-10" />
-              <h2 className="font-display text-headline-md text-on-surface mb-6">
-                One-Time Support
-              </h2>
-
-              {/* Amount Selection */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                {amounts.map((amount) => (
-                  <button
-                    key={amount.value}
-                    onClick={() => setSelectedAmount(amount.value)}
-                    className={`p-4 rounded-xl border text-center transition-all ${
-                      selectedAmount === amount.value
-                        ? "border-primary bg-primary/10 text-primary"
-                        : "border-surface-stroke bg-surface hover:border-primary/50 text-on-surface"
-                    }`}
-                  >
-                    <div className="font-display text-xl font-bold">
-                      {amount.label}
-                    </div>
-                    <div className="font-mono text-label-mono text-text-dimmed">
-                      {amount.subtitle}
-                    </div>
-                  </button>
-                ))}
-              </div>
-
-              {/* Custom Amount Input */}
-              {selectedAmount === 0 && (
-                <div className="mb-8">
-                  <label className="font-mono text-label-caps text-on-surface-variant uppercase block mb-2">
-                    Custom Amount (USD)
-                  </label>
-                  <input
-                    type="number"
-                    min="1"
-                    value={customAmount}
-                    onChange={(e) => setCustomAmount(e.target.value)}
-                    className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded px-3 py-2 font-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary glow-effect"
-                    placeholder="Enter amount"
-                  />
-                </div>
-              )}
-
-              {/* Payment Methods */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-primary text-on-primary font-display text-base px-8 py-4 rounded shadow-[0_0_20px_rgba(118,219,150,0.2)] hover:shadow-[0_0_30px_rgba(118,219,150,0.4)] hover:brightness-110 transition-all flex items-center justify-center gap-2 flex-1">
-                  <span className="material-symbols-outlined">credit_card</span>
-                  Pay with Card
-                </button>
-                <button className="bg-[#0070BA] text-white font-display text-base px-8 py-4 rounded hover:brightness-110 transition-all flex items-center justify-center gap-2 flex-1">
-                  PayPal
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Sponsorship Card */}
-          <div className="lg:col-span-4">
-            <div className="bg-surface-container border border-surface-stroke rounded-xl p-8 relative overflow-hidden h-full">
-              <div className="absolute right-0 bottom-0 w-48 h-48 bg-primary/5 rounded-tl-full -z-10" />
-              <div className="inline-flex items-center px-3 py-1 bg-primary/10 border border-primary/20 rounded-full mb-4">
-                <span className="material-symbols-outlined text-primary text-sm mr-2">
-                  business
-                </span>
-                <span className="font-mono text-label-caps text-primary uppercase tracking-wider">
-                  Corporate
-                </span>
-              </div>
-              <h2 className="font-display text-headline-md text-on-surface mb-4">
-                Sponsorship
-              </h2>
-              <p className="font-body text-body-md text-on-surface-variant mb-6">
-                For prop firms, brokerages, and trading companies looking to
-                support independent trading tools.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Logo placement on the website",
-                  "Dedicated 'Supported By' link",
-                  "Priority support channel",
-                  "Newsletter sponsorship",
-                ].map((benefit) => (
-                  <li
-                    key={benefit}
-                    className="flex items-center gap-2 font-body text-body-md text-on-surface-variant"
-                  >
-                    <span className="material-symbols-outlined text-primary text-[18px]">
-                      check_circle
-                    </span>
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
-              <button className="w-full bg-transparent border border-primary text-primary font-display text-base px-6 py-3 rounded hover:bg-primary/10 transition-colors">
-                Contact for Tiers
-              </button>
-            </div>
-          </div>
-        </div>
+      {/* Hero Section */}
+      <section className="flex flex-col items-center text-center max-w-3xl gap-6 z-10">
+        <span className="font-label-mono text-label-mono text-primary bg-primary/10 px-3 py-1 rounded">
+          USER-OWNED. PRIVACY-FIRST.
+        </span>
+        <h1 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface">
+          Keep FXM Independent.
+        </h1>
+        <p className="font-body-lg text-body-lg text-text-dimmed">
+          FXM Trade Keeper is and always will be free, open, and strictly on your device. Your data never touches our servers. If this tool brings value to your trading routine, consider chipping in to keep the servers (for the website, not your data) running and development active.
+        </p>
       </section>
-    </>
+
+      {/* Main Bento Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter w-full">
+        {/* Individual Donation Card (Spans 8 cols on desktop) */}
+        <div className="premium-card rounded-xl p-6 md:p-8 col-span-1 md:col-span-8 flex flex-col gap-8">
+          <div className="flex flex-col gap-2">
+            <h2 className="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
+                favorite
+              </span>
+              One-Time Support
+            </h2>
+            <p className="font-body-md text-body-md text-text-dimmed">
+              Choose an amount to help fund the next update.
+            </p>
+          </div>
+
+          {/* Donation Tiers */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {amounts.map((amount) => (
+              <button
+                key={amount.value}
+                onClick={() => setSelectedAmount(amount.value)}
+                className={`py-4 rounded-lg flex flex-col items-center justify-center gap-1 transition-all active:scale-95 ${
+                  amount.value === 0
+                    ? "glow-effect bg-surface border border-surface-stroke"
+                    : selectedAmount === amount.value
+                    ? "bg-surface-container-high border-2 border-primary text-on-surface relative overflow-hidden"
+                    : "bg-surface-container-high border border-surface-stroke hover:border-primary/50 text-on-surface group"
+                }`}
+              >
+                {selectedAmount === amount.value && amount.value !== 0 && (
+                  <div className="absolute inset-0 bg-primary/5" />
+                )}
+                <span className="font-headline-md text-headline-md text-primary">
+                  {amount.label}
+                </span>
+                <span className={`font-label-caps text-label-caps ${
+                  selectedAmount === amount.value ? "text-on-surface" : "text-text-dimmed group-hover:text-on-surface-variant"
+                } transition-colors`}>
+                  {amount.subtitle.toUpperCase()}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          {/* Custom Amount Input */}
+          {selectedAmount === 0 && (
+            <div className="glow-effect bg-surface border border-surface-stroke rounded-lg flex items-center px-4 transition-all">
+              <span className="text-text-dimmed font-headline-md text-headline-md mr-2">$</span>
+              <input
+                type="number"
+                min="1"
+                value={customAmount}
+                onChange={(e) => setCustomAmount(e.target.value)}
+                className="bg-transparent w-full text-on-surface font-headline-md text-headline-md border-none p-0 focus:ring-0 placeholder-surface-variant"
+                placeholder="Custom"
+              />
+            </div>
+          )}
+
+          {/* Payment Methods */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-auto pt-4 border-t border-surface-stroke/50">
+            <button className="flex-1 bg-surface-container-highest hover:bg-surface-variant text-on-surface font-body-md text-body-md font-medium py-3 px-4 rounded border border-surface-stroke flex items-center justify-center gap-2 transition-colors">
+              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
+                credit_card
+              </span>
+              Credit Card / Stripe
+            </button>
+            <button className="flex-1 bg-[#003087] hover:bg-[#00205e] text-white font-body-md text-body-md font-medium py-3 px-4 rounded flex items-center justify-center gap-2 transition-colors">
+              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
+                account_balance_wallet
+              </span>
+              PayPal
+            </button>
+          </div>
+        </div>
+
+        {/* Corporate Sponsorship Card (Spans 4 cols on desktop) */}
+        <div className="bg-surface-container-low border border-surface-stroke rounded-xl p-6 md:p-8 col-span-1 md:col-span-4 flex flex-col gap-6 relative overflow-hidden">
+          {/* Subtle gradient slash */}
+          <div className="absolute -right-10 -top-10 w-32 h-32 bg-primary/10 rotate-45 blur-2xl pointer-events-none" />
+          <div className="flex flex-col gap-2">
+            <h2 className="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+              <span className="material-symbols-outlined text-text-dimmed">
+                handshake
+              </span>
+              Sponsorship
+            </h2>
+            <p className="font-body-md text-body-md text-text-dimmed">
+              Represent a proprietary trading firm, brokerage, or prop-firm evaluation company?
+            </p>
+          </div>
+          <ul className="flex flex-col gap-3 font-body-md text-body-md text-on-surface-variant flex-grow">
+            <li className="flex items-start gap-2">
+              <span className="material-symbols-outlined text-primary text-sm mt-1">check</span>
+              <span>Logo placement on repo &amp; site</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="material-symbols-outlined text-primary text-sm mt-1">check</span>
+              <span>Dedicated &apos;Supported By&apos; link</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="material-symbols-outlined text-primary text-sm mt-1">check</span>
+              <span>Priority support channel</span>
+            </li>
+          </ul>
+          <button className="w-full bg-transparent border border-primary text-primary hover:bg-primary/5 font-body-md text-body-md font-bold py-3 px-4 rounded transition-colors mt-auto">
+            Contact for Tiers
+          </button>
+        </div>
+      </div>
+    </main>
   );
 }

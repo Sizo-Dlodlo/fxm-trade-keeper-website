@@ -80,13 +80,13 @@ export default function ReviewsSection() {
             className="bg-surface-container border border-surface-stroke rounded-xl p-6 hover:border-primary/50 transition-colors"
           >
             <StarRating rating={review.rating} />
-            <h3 className="font-display text-lg text-on-surface mt-3 mb-2">
+            <h3 className="font-headline-md text-lg text-on-surface mt-3 mb-2">
               &ldquo;{review.title}&rdquo;
             </h3>
-            <p className="font-body text-body-md text-on-surface-variant mb-4">
+            <p className="font-body-md text-body-md text-on-surface-variant mb-4">
               {review.body}
             </p>
-            <div className="flex items-center justify-between font-mono text-label-mono text-text-dimmed">
+            <div className="flex items-center justify-between font-label-mono text-label-mono text-text-dimmed">
               <span>{review.author}</span>
               <span>
                 v{review.version} &middot; {review.platform}
@@ -100,7 +100,7 @@ export default function ReviewsSection() {
       <div className="text-center">
         <button
           onClick={() => setShowForm(!showForm)}
-          className="bg-primary text-on-primary font-display text-base px-8 py-4 rounded shadow-[0_0_20px_rgba(118,219,150,0.2)] hover:shadow-[0_0_30px_rgba(118,219,150,0.4)] hover:brightness-110 transition-all inline-flex items-center gap-2"
+          className="bg-primary text-on-primary font-headline-md text-base px-8 py-4 rounded shadow-[0_0_20px_rgba(118,219,150,0.2)] hover:shadow-[0_0_30px_rgba(118,219,150,0.4)] hover:brightness-110 transition-all inline-flex items-center gap-2"
         >
           <span className="material-symbols-outlined">rate_review</span>
           Write a Review
@@ -111,12 +111,12 @@ export default function ReviewsSection() {
       {showForm && (
         <div className="mt-12 max-w-2xl mx-auto">
           <div className="bg-surface-container border border-surface-stroke rounded-xl p-8">
-            <h3 className="font-display text-headline-md text-on-surface mb-6">
+            <h3 className="font-headline-md text-headline-md text-on-surface mb-6">
               Share Your Experience
             </h3>
             <form className="space-y-4">
               <div>
-                <label className="font-mono text-label-caps text-on-surface-variant uppercase block mb-2">
+                <label className="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">
                   Rating
                 </label>
                 <div className="flex gap-2">
@@ -132,38 +132,38 @@ export default function ReviewsSection() {
                 </div>
               </div>
               <div>
-                <label className="font-mono text-label-caps text-on-surface-variant uppercase block mb-2">
+                <label className="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">
                   Display Name
                 </label>
                 <input
                   type="text"
-                  className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded px-3 py-2 font-body text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                  className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded px-3 py-2 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                   placeholder="Your name"
                 />
               </div>
               <div>
-                <label className="font-mono text-label-caps text-on-surface-variant uppercase block mb-2">
+                <label className="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">
                   Review Title
                 </label>
                 <input
                   type="text"
-                  className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded px-3 py-2 font-body text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                  className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded px-3 py-2 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                   placeholder="Summarize your experience"
                 />
               </div>
               <div>
-                <label className="font-mono text-label-caps text-on-surface-variant uppercase block mb-2">
+                <label className="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">
                   Your Review
                 </label>
                 <textarea
                   rows={4}
-                  className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded px-3 py-2 font-body text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary resize-none"
+                  className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded px-3 py-2 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary resize-none"
                   placeholder="Tell others about your experience with FXM Trade Keeper..."
                 />
               </div>
               <button
                 type="submit"
-                className="bg-primary text-on-primary font-display text-base px-8 py-3 rounded hover:brightness-110 transition-all flex items-center gap-2"
+                className="bg-primary text-on-primary font-headline-md text-base px-8 py-3 rounded hover:brightness-110 transition-all flex items-center gap-2"
               >
                 <span className="material-symbols-outlined">send</span>
                 Submit Review

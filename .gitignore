@@ -47,3 +47,5 @@ next-env.d.ts
 # Large binary files (host externally for Vercel)
 public/downloads/*.exe
 public/downloads/*.blockmap
+
+.vercel

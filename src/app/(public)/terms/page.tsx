@@ -7,16 +7,16 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="w-full pb-24 px-4 md:px-margin-desktop max-w-4xl mx-auto py-16">
-      <h1 className="font-display text-display-lg text-on-surface mb-8">
+    <main className="flex-grow w-full max-w-4xl mx-auto px-4 md:px-margin-desktop py-12 md:py-20">
+      <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4">
         Terms of Use
       </h1>
-      <p className="font-mono text-label-mono text-text-dimmed mb-8">
+      <p className="font-label-mono text-label-mono text-text-dimmed mb-8">
         Effective Date: August 26, 2026
       </p>
-      <div className="space-y-8 font-body text-body-md text-on-surface-variant">
+      <div className="space-y-8 font-body-md text-body-md text-on-surface-variant">
         <section>
-          <h2 className="font-display text-headline-md text-on-surface mb-4">
+          <h2 className="font-headline-md text-headline-md text-on-surface mb-4">
             1. Acceptance
           </h2>
           <p>
@@ -26,7 +26,7 @@ export default function TermsPage() {
           </p>
         </section>
         <section>
-          <h2 className="font-display text-headline-md text-on-surface mb-4">
+          <h2 className="font-headline-md text-headline-md text-on-surface mb-4">
             2. Use License
           </h2>
           <p>
@@ -36,7 +36,7 @@ export default function TermsPage() {
           </p>
         </section>
         <section>
-          <h2 className="font-display text-headline-md text-on-surface mb-4">
+          <h2 className="font-headline-md text-headline-md text-on-surface mb-4">
             3. Disclaimer
           </h2>
           <p>
@@ -46,7 +46,7 @@ export default function TermsPage() {
           </p>
         </section>
         <section>
-          <h2 className="font-display text-headline-md text-on-surface mb-4">
+          <h2 className="font-headline-md text-headline-md text-on-surface mb-4">
             4. Limitation of Liability
           </h2>
           <p>
@@ -56,6 +56,6 @@ export default function TermsPage() {
           </p>
         </section>
       </div>
-    </div>
+    </main>
   );
 }

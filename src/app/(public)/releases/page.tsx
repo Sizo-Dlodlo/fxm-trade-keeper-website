@@ -31,26 +31,23 @@ const releases = [
 
 export default function ReleasesPage() {
   return (
-    <>
+    <main className="flex-grow w-full max-w-container-max mx-auto px-4 md:px-margin-desktop py-12 md:py-20 flex flex-col gap-gutter">
       {/* Hero */}
-      <header className="relative py-24 px-4 md:px-margin-desktop overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(118,219,150,0.1)_0%,rgba(17,19,25,0)_70%)] pointer-events-none" />
-        <div className="max-w-container-max mx-auto relative z-10 text-center flex flex-col items-center">
-          <span className="font-mono text-label-caps bg-primary/10 text-primary px-3 py-1 rounded-full border border-primary/20 mb-6 tracking-widest uppercase">
-            Changelog
-          </span>
-          <h1 className="font-display text-display-lg text-on-surface mb-6">
-            Release Notes
-          </h1>
-          <p className="font-body text-body-lg text-on-surface-variant max-w-2xl">
-            Track every update, improvement, and new feature in FXM Trade
-            Keeper.
-          </p>
-        </div>
+      <header className="flex flex-col items-center text-center max-w-3xl gap-6 z-10">
+        <span className="font-label-mono text-label-mono text-primary bg-primary/10 px-3 py-1 rounded">
+          CHANGELOG
+        </span>
+        <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-2">
+          Release Notes
+        </h1>
+        <p className="font-body-lg text-body-lg text-on-surface-variant">
+          Track every update, improvement, and new feature in FXM Trade
+          Keeper.
+        </p>
       </header>
 
       {/* Releases */}
-      <section className="w-full pb-24 px-4 md:px-margin-desktop max-w-4xl mx-auto">
+      <section className="w-full max-w-4xl mx-auto">
         {releases.map((release) => (
           <div
             key={release.version}
@@ -58,22 +55,22 @@ export default function ReleasesPage() {
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10" />
             <div className="flex items-center gap-3 mb-6">
-              <h2 className="font-display text-headline-md text-on-surface">
+              <h2 className="font-headline-md text-headline-md text-on-surface">
                 FXM Trade Keeper v{release.version}
               </h2>
               {release.stable && (
-                <span className="font-mono text-label-mono bg-primary/10 text-primary px-3 py-1 rounded-full">
+                <span className="font-label-mono text-label-mono bg-primary/10 text-primary px-3 py-1 rounded-full">
                   STABLE
                 </span>
               )}
             </div>
-            <p className="font-mono text-label-mono text-text-dimmed mb-6">
+            <p className="font-label-mono text-label-mono text-text-dimmed mb-6">
               Released {release.date}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-display text-lg text-on-surface mb-3 flex items-center gap-2">
+                <h3 className="font-headline-md text-lg text-on-surface mb-3 flex items-center gap-2">
                   <span className="material-symbols-outlined text-primary text-[20px]">
                     new_releases
                   </span>
@@ -83,7 +80,7 @@ export default function ReleasesPage() {
                   {release.new.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-2 font-body text-body-md text-on-surface-variant"
+                      className="flex items-start gap-2 font-body-md text-body-md text-on-surface-variant"
                     >
                       <span className="material-symbols-outlined text-data-up text-[18px] mt-0.5">
                         check_circle
@@ -94,7 +91,7 @@ export default function ReleasesPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-display text-lg text-on-surface mb-3 flex items-center gap-2">
+                <h3 className="font-headline-md text-lg text-on-surface mb-3 flex items-center gap-2">
                   <span className="material-symbols-outlined text-primary text-[20px]">
                     upgrade
                   </span>
@@ -104,7 +101,7 @@ export default function ReleasesPage() {
                   {release.improved.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-2 font-body text-body-md text-on-surface-variant"
+                      className="flex items-start gap-2 font-body-md text-body-md text-on-surface-variant"
                     >
                       <span className="material-symbols-outlined text-primary text-[18px] mt-0.5">
                         check_circle
@@ -119,7 +116,7 @@ export default function ReleasesPage() {
             <div className="mt-8 pt-6 border-t border-surface-stroke/50">
               <Link
                 href="/download"
-                className="bg-primary text-on-primary font-display text-base px-6 py-3 rounded hover:brightness-110 transition-all inline-flex items-center gap-2"
+                className="bg-primary text-on-primary font-headline-md text-base px-6 py-3 rounded hover:brightness-110 transition-all inline-flex items-center gap-2"
               >
                 <span className="material-symbols-outlined">download</span>
                 Download v{release.version}
@@ -128,6 +125,6 @@ export default function ReleasesPage() {
           </div>
         ))}
       </section>
-    </>
+    </main>
   );
 }

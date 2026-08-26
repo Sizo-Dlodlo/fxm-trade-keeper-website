@@ -8,20 +8,19 @@ export default function Hero() {
 
       <div className="relative z-10 flex flex-col items-center max-w-4xl space-y-6">
         {/* Version Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-primary font-mono text-label-mono mb-4">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-primary font-label-mono text-label-mono mb-4">
           <span className="w-2 h-2 rounded-full bg-data-up animate-pulse" />
           V 2.0.0 NOW AVAILABLE
         </div>
 
         {/* Headline */}
-        <h1 className="font-display text-display-lg text-on-surface leading-tight">
-          Your Trading Journal.
-          <br />
+        <h1 className="font-display-lg text-display-lg text-on-surface">
+          Your Trading Journal.<br />
           <span className="text-primary">Your Data. Your Edge.</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="font-body text-body-lg text-on-surface-variant max-w-2xl mt-4 mb-8">
+        <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4 mb-8">
           A free professional trading journal designed to help traders record,
           analyze and improve their trading performance without sacrificing
           privacy.
@@ -31,7 +30,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 mt-8 w-full sm:w-auto">
           <Link
             href="/download"
-            className="bg-primary text-on-primary font-display text-base px-8 py-4 rounded shadow-[0_0_20px_rgba(118,219,150,0.2)] hover:shadow-[0_0_30px_rgba(118,219,150,0.4)] hover:brightness-110 transition-all flex items-center justify-center gap-2 group"
+            className="bg-primary text-on-primary font-headline-md text-base px-8 py-4 rounded shadow-[0_0_20px_rgba(118,219,150,0.2)] hover:shadow-[0_0_30px_rgba(118,219,150,0.4)] hover:brightness-110 transition-all flex items-center justify-center gap-2 group"
           >
             <span className="material-symbols-outlined group-hover:-translate-y-1 transition-transform">
               download
@@ -40,14 +39,14 @@ export default function Hero() {
           </Link>
           <Link
             href="/download#portable"
-            className="bg-transparent border border-surface-stroke text-on-surface font-display text-base px-8 py-4 rounded hover:bg-surface-container transition-colors flex items-center justify-center gap-2"
+            className="bg-transparent border border-surface-stroke text-on-surface font-headline-md text-base px-8 py-4 rounded hover:bg-surface-container transition-colors flex items-center justify-center gap-2"
           >
             Portable Edition
           </Link>
         </div>
 
         {/* Trust Strip */}
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mt-12 pt-8 border-t border-surface-stroke/50 w-full text-on-surface-variant font-mono text-label-mono">
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mt-12 pt-8 border-t border-surface-stroke/50 w-full text-on-surface-variant font-label-mono text-label-mono">
           <div className="flex items-center gap-1.5">
             <span className="material-symbols-outlined text-primary text-[18px]">
               check_circle

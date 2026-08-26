@@ -25,26 +25,23 @@ const screenshots = [
 
 export default function ScreenshotsPage() {
   return (
-    <>
+    <main className="flex-grow w-full max-w-container-max mx-auto px-4 md:px-margin-desktop py-12 md:py-20 flex flex-col gap-gutter">
       {/* Hero */}
-      <header className="relative py-24 px-4 md:px-margin-desktop overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(118,219,150,0.1)_0%,rgba(17,19,25,0)_70%)] pointer-events-none" />
-        <div className="max-w-container-max mx-auto relative z-10 text-center flex flex-col items-center">
-          <span className="font-mono text-label-caps bg-primary/10 text-primary px-3 py-1 rounded-full border border-primary/20 mb-6 tracking-widest uppercase">
-            Gallery
-          </span>
-          <h1 className="font-display text-display-lg text-on-surface mb-6">
-            See Trade Keeper in Action
-          </h1>
-          <p className="font-body text-body-lg text-on-surface-variant max-w-2xl">
-            A clean, powerful interface designed for serious traders. Browse
-            screenshots of every major feature.
-          </p>
-        </div>
+      <header className="flex flex-col items-center text-center max-w-3xl gap-6 z-10">
+        <span className="font-label-mono text-label-mono text-primary bg-primary/10 px-3 py-1 rounded">
+          GALLERY
+        </span>
+        <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-2">
+          See Trade Keeper in Action
+        </h1>
+        <p className="font-body-lg text-body-lg text-on-surface-variant">
+          A clean, powerful interface designed for serious traders. Browse
+          screenshots of every major feature.
+        </p>
       </header>
 
       {/* Screenshots Grid */}
-      <section className="w-full pb-24 px-4 md:px-margin-desktop max-w-container-max mx-auto">
+      <section className="w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
           {screenshots.map((screenshot) => (
             <div
@@ -59,10 +56,10 @@ export default function ScreenshotsPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                 <div>
-                  <span className="font-mono text-[10px] text-primary uppercase tracking-wider">
+                  <span className="font-label-caps text-[10px] text-primary uppercase tracking-wider">
                     {screenshot.category}
                   </span>
-                  <span className="font-display text-lg text-on-surface block">
+                  <span className="font-headline-md text-lg text-on-surface block">
                     {screenshot.alt}
                   </span>
                 </div>
@@ -71,6 +68,6 @@ export default function ScreenshotsPage() {
           ))}
         </div>
       </section>
-    </>
+    </main>
   );
 }

@@ -9,27 +9,23 @@ export const metadata: Metadata = {
 
 export default function DownloadPage() {
   return (
-    <>
+    <main className="flex-grow w-full max-w-container-max mx-auto px-4 md:px-margin-desktop py-12 md:py-20 flex flex-col gap-gutter">
       {/* Hero */}
-      <header className="relative py-24 px-4 md:px-margin-desktop overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(118,219,150,0.1)_0%,rgba(17,19,25,0)_70%)] pointer-events-none" />
-        <div className="max-w-container-max mx-auto relative z-10 text-center flex flex-col items-center">
-          <span className="font-mono text-label-caps bg-primary/10 text-primary px-3 py-1 rounded-full border border-primary/20 mb-6 tracking-widest uppercase">
-            Free Download
-          </span>
-          <h1 className="font-display text-display-lg text-on-surface mb-6">
-            Download FXM Trade Keeper
-          </h1>
-          <p className="font-body text-body-lg text-on-surface-variant max-w-2xl">
-            Version 2.0.0 — Free. Offline. Private. No subscription required.
-          </p>
-        </div>
+      <header className="mb-8">
+        <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4">
+          Secure your setup.<br />
+          <span className="text-primary">Download Version 2.0.0</span>
+        </h1>
+        <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+          Choose the installation method that best fits your trading environment.
+          Built for Windows with institutional-grade security in mind.
+        </p>
       </header>
 
       {/* Download Section */}
-      <section className="w-full pb-24 px-4 md:px-margin-desktop max-w-container-max mx-auto">
+      <section className="w-full">
         <DownloadCards />
       </section>
-    </>
+    </main>
   );
 }

@@ -10,30 +10,50 @@ const resources = [
   {
     category: "Charting & Analysis",
     items: [
-      { name: "TradingView", description: "Advanced charting and technical analysis platform", url: "#" },
-      { name: "MetaTrader 5", description: "Popular forex trading platform with advanced charting", url: "#" },
-      { name: "MetaTrader 4", description: "Classic forex trading platform", url: "#" },
+      { name: "TradingView", description: "Advanced charting and technical analysis platform", url: "https://www.tradingview.com" },
+      { name: "MetaTrader 5", description: "Popular forex trading platform with advanced charting", url: "https://www.metatrader5.com" },
+      { name: "MetaTrader 4", description: "Classic forex trading platform", url: "https://www.metatrader4.com" },
+      { name: "TradingView Screeners", description: "Stock, forex, and crypto screeners", url: "https://www.tradingview.com/screener/" },
     ],
   },
   {
     category: "Education",
     items: [
-      { name: "Babypips", description: "Free forex education for beginners", url: "#" },
-      { name: "Investopedia", description: "Financial education and market news", url: "#" },
+      { name: "Babypips", description: "Free forex education for beginners", url: "https://www.babypips.com" },
+      { name: "Investopedia", description: "Financial education and market news", url: "https://www.investopedia.com" },
+      { name: "Forex Factory", description: "Forex trading forum and economic calendar", url: "https://www.forexfactory.com" },
+      { name: "BabyPips School of Pipsology", description: "Comprehensive free forex course", url: "https://www.babypips.com/learn/forex" },
     ],
   },
   {
     category: "Trading Tools",
     items: [
-      { name: "Myfxbook", description: "Forex trading analytics and social network", url: "#" },
-      { name: "FXBlue", description: "Trading account analysis and reporting", url: "#" },
+      { name: "Myfxbook", description: "Forex trading analytics and social network", url: "https://www.myfxbook.com" },
+      { name: "FXBlue", description: "Trading account analysis and reporting", url: "https://www.fxblue.com" },
+      { name: "MetaTrader Supreme Edition", description: "Advanced MT4/MT5 plugin by ADMK Studio", url: "https://www.mql5.com/en/market/product/21790" },
     ],
   },
   {
     category: "Community",
     items: [
-      { name: "Forex Factory", description: "Forex trading forum and economic calendar", url: "#" },
-      { name: "Reddit r/Forex", description: "Active forex trading community", url: "#" },
+      { name: "Reddit r/Forex", description: "Active forex trading community", url: "https://www.reddit.com/r/Forex/" },
+      { name: "Reddit r/Daytrading", description: "Day trading discussions and strategies", url: "https://www.reddit.com/r/Daytrading/" },
+      { name: "Elite Trader", description: "Professional trading forum", url: "https://www.elitetrader.com" },
+    ],
+  },
+  {
+    category: "Economic Calendars",
+    items: [
+      { name: "Forex Factory Calendar", description: "Real-time economic events and impact ratings", url: "https://www.forexfactory.com/calendar" },
+      { name: "Investing.com Economic Calendar", description: "Global economic events and forecasts", url: "https://www.investing.com/economic-calendar/" },
+      { name: "TradingView Economic Calendar", description: "Economic events with market impact analysis", url: "https://www.tradingview.com/economic-calendar/" },
+    ],
+  },
+  {
+    category: "Risk Management",
+    items: [
+      { name: "Position Size Calculator (Myfxbook)", description: "Calculate optimal position sizes based on risk", url: "https://www.myfxbook.com/forex-calculators/position-size" },
+      { name: "Forex Compound Calculator", description: "Project growth with compound interest", url: "https://www.myfxbook.com/forex-calculators/compound-interest" },
     ],
   },
 ];
@@ -59,7 +79,7 @@ export default function ResourcesPage() {
 
       {/* Resources Grid */}
       <section className="w-full pb-24 px-4 md:px-margin-desktop max-w-container-max mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
           {resources.map((category) => (
             <div
               key={category.category}

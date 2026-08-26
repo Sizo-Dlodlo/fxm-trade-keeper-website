@@ -51,7 +51,7 @@ const features = [
 
 export default function FeatureGrid() {
   return (
-    <section className="py-16 px-4 md:px-margin-desktop relative z-10">
+    <section className="relative z-10">
       <div className="max-w-container-max mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
           {features.map((feature) => (
@@ -65,10 +65,10 @@ export default function FeatureGrid() {
                   {feature.icon}
                 </span>
               </div>
-              <h3 className="font-display text-headline-md text-on-surface mb-3">
+              <h3 className="font-headline-md text-headline-md text-on-surface mb-3">
                 {feature.title}
               </h3>
-              <p className="font-body text-body-md text-on-surface-variant mb-4">
+              <p className="font-body-md text-body-md text-on-surface-variant mb-4">
                 {feature.description}
               </p>
               {feature.items.length > 0 && (
@@ -76,7 +76,7 @@ export default function FeatureGrid() {
                   {feature.items.map((item) => (
                     <li
                       key={item}
-                      className="flex items-center font-mono text-label-mono text-text-dimmed"
+                      className="flex items-center font-label-mono text-label-mono text-text-dimmed"
                     >
                       <span className="material-symbols-outlined text-data-up text-sm mr-2">
                         check
@@ -94,33 +94,33 @@ export default function FeatureGrid() {
         <div className="mt-8 bg-surface-container-low border border-surface-stroke rounded-xl p-8 lg:col-span-3 flex flex-col md:flex-row items-center gap-8 justify-between relative overflow-hidden">
           <div className="absolute right-0 bottom-0 w-64 h-64 bg-primary/5 rounded-tl-full -z-10" />
           <div className="flex-1 max-w-2xl">
-            <div className="inline-flex items-center px-3 py-1 bg-surface-stroke/50 border border-surface-stroke rounded-full mb-4">
+            <div className="inline-flex items-center px-3 py-1 bg-primary/10 border border-primary/20 rounded-full mb-4">
               <span className="material-symbols-outlined text-primary text-sm mr-2">
                 database
               </span>
-              <span className="font-mono text-label-caps text-on-surface uppercase tracking-wider">
+              <span className="font-label-caps text-label-caps text-primary uppercase tracking-wider">
                 Privacy First
               </span>
             </div>
-            <h3 className="font-display text-headline-md text-on-surface mb-3">
+            <h3 className="font-headline-md text-headline-md text-on-surface mb-3">
               Total Data Ownership
             </h3>
-            <p className="font-body text-body-lg text-on-surface-variant">
+            <p className="font-body-lg text-body-lg text-on-surface-variant">
               Your edge is proprietary. FXM Trade Keeper operates via a local
               SQLite database. No mandatory cloud syncing, no data harvesting.
               Absolute security for your trading records.
             </p>
           </div>
           <div className="w-full md:w-auto">
-            <div className="glass-overlay border border-surface-stroke p-6 rounded-xl shadow-lg flex items-center space-x-4">
+            <div className="glass-card rounded-xl p-6 flex items-center space-x-4">
               <span className="material-symbols-outlined text-4xl text-primary">
                 lock
               </span>
               <div>
-                <div className="font-mono text-label-mono text-on-surface">
+                <div className="font-label-mono text-label-mono text-on-surface">
                   local.db
                 </div>
-                <div className="font-body text-body-md text-text-dimmed">
+                <div className="font-body-md text-body-md text-text-dimmed">
                   Encrypted &amp; Secure
                 </div>
               </div>
