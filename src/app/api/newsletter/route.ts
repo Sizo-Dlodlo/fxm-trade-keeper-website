@@ -1,11 +1,29 @@
 import { NextRequest, NextResponse } from "next/server";
+import { db } from "@/lib/db";
 
 export async function POST(request: NextRequest) {
-  const body = await request.json();
-  const { email } = body;
+  try {
+    const body = await request.json();
+    const { email } = body;
 
-  // TODO: Store in database
-  console.log("Newsletter signup:", { email });
+    if (!email) {
+      return NextResponse.json(
+        { error: "Email is required" },
+        { status: 400 }
+      );
+    }
 
-  return NextResponse.json({ success: true, message: "Subscribed successfully" });
+    await db.newsletterSubscriber.upsert({
+      where: { email },
+      update: { active: true },
+      create: { email },
+    });
+
+    return NextResponse.json({ success: true, message: "Subscribed successfully" });
+  } catch {
+    return NextResponse.json(
+      { error: "Failed to subscribe" },
+      { status: 500 }
+    );
+  }
 }

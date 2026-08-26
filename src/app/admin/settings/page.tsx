@@ -9,10 +9,10 @@ export default function AdminSettingsPage() {
   return (
     <div className="max-w-container-max mx-auto">
       <div className="mb-8">
-        <h1 className="font-display text-headline-md text-on-surface mb-1">
+        <h1 className="font-headline-md text-headline-md text-on-surface mb-1">
           Settings
         </h1>
-        <p className="font-body text-body-md text-on-surface-variant">
+        <p className="font-body-md text-body-md text-on-surface-variant">
           Configure website settings and integrations
         </p>
       </div>
@@ -20,31 +20,31 @@ export default function AdminSettingsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Analytics Settings */}
         <div className="bg-surface-container border border-surface-stroke rounded-xl p-6">
-          <h2 className="font-display text-lg text-on-surface mb-6">
+          <h2 className="font-headline-md text-lg text-on-surface mb-6">
             Analytics
           </h2>
           <div className="space-y-4">
             <div>
-              <label className="font-mono text-label-caps text-on-surface-variant uppercase block mb-2">
+              <label className="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">
                 Google Analytics Measurement ID
               </label>
               <input
                 type="text"
                 value={gaId}
                 onChange={(e) => setGaId(e.target.value)}
-                className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded px-3 py-2 font-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded-lg px-4 py-3 font-label-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                 placeholder="G-XXXXXXXXXX"
               />
             </div>
             <div>
-              <label className="font-mono text-label-caps text-on-surface-variant uppercase block mb-2">
+              <label className="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">
                 Google AdSense Publisher ID
               </label>
               <input
                 type="text"
                 value={adsenseId}
                 onChange={(e) => setAdsenseId(e.target.value)}
-                className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded px-3 py-2 font-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded-lg px-4 py-3 font-label-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                 placeholder="pub-XXXXXXXXXXXXXXXX"
               />
             </div>
@@ -53,36 +53,36 @@ export default function AdminSettingsPage() {
 
         {/* Site Settings */}
         <div className="bg-surface-container border border-surface-stroke rounded-xl p-6">
-          <h2 className="font-display text-lg text-on-surface mb-6">
+          <h2 className="font-headline-md text-lg text-on-surface mb-6">
             Site Configuration
           </h2>
           <div className="space-y-4">
             <div>
-              <label className="font-mono text-label-caps text-on-surface-variant uppercase block mb-2">
+              <label className="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">
                 Site URL
               </label>
               <input
                 type="url"
-                className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded px-3 py-2 font-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded-lg px-4 py-3 font-label-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                 placeholder="https://fxmtradekeeper.com"
               />
             </div>
             <div>
-              <label className="font-mono text-label-caps text-on-surface-variant uppercase block mb-2">
+              <label className="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">
                 Support Email
               </label>
               <input
                 type="email"
-                className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded px-3 py-2 font-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded-lg px-4 py-3 font-label-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                 placeholder="support@fxmtradekeeper.com"
               />
             </div>
             <div className="flex items-center justify-between">
               <div>
-                <div className="font-body text-body-md text-on-surface">
+                <div className="font-body-md text-body-md text-on-surface">
                   Enable Advertising
                 </div>
-                <div className="font-body text-body-md text-text-dimmed text-sm">
+                <div className="font-body-md text-body-md text-text-dimmed text-sm">
                   Show AdSense ads on content pages
                 </div>
               </div>
@@ -92,10 +92,10 @@ export default function AdminSettingsPage() {
             </div>
             <div className="flex items-center justify-between">
               <div>
-                <div className="font-body text-body-md text-on-surface">
+                <div className="font-body-md text-body-md text-on-surface">
                   Enable Comments
                 </div>
-                <div className="font-body text-body-md text-text-dimmed text-sm">
+                <div className="font-body-md text-body-md text-text-dimmed text-sm">
                   Allow comments on guides and blog posts
                 </div>
               </div>
@@ -108,7 +108,7 @@ export default function AdminSettingsPage() {
       </div>
 
       <div className="mt-6">
-        <button className="bg-primary text-on-primary font-display text-base px-8 py-3 rounded hover:brightness-110 transition-all">
+        <button className="bg-primary text-on-primary font-headline-md text-base px-8 py-3 rounded-lg hover:brightness-110 transition-all">
           Save Settings
         </button>
       </div>

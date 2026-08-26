@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// NextAuth.js models
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  password      String
+  role          String    @default("admin")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  sessions      Session[]
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Content models
+model Release {
+  id            String   @id @default(cuid())
+  version       String
+  stable        Boolean  @default(true)
+  releaseDate   DateTime @default(now())
+  installerUrl  String?
+  portableUrl   String?
+  installerSize Int?
+  portableSize  Int?
+  installerSha512 String?
+  portableSha512  String?
+  sha256        Json?
+  platform      String   @default("Windows")
+  architecture  String   @default("x64")
+  changelog     String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Review {
+  id               String   @id @default(cuid())
+  rating           Int
+  title            String
+  body             String?
+  displayName      String
+  applicationVersion String?
+  platform         String?
+  status           String   @default("pending") // pending, approved, rejected
+  featured         Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  category  String?
+  subject   String
+  message   String
+  read      Boolean  @default(false)
+  replied   Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+model DownloadEvent {
+  id        String   @id @default(cuid())
+  version   String
+  platform  String
+  source    String?
+  createdAt DateTime @default(now())
+}
+
+model Setting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+}

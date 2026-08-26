@@ -1,11 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
+import { db } from "@/lib/db";
 
 export async function POST(request: NextRequest) {
-  const body = await request.json();
-  const { name, email, category, subject, message } = body;
+  try {
+    const body = await request.json();
+    const { name, email, category, subject, message } = body;
 
-  // TODO: Store in database
-  console.log("Contact message:", { name, email, category, subject });
+    if (!name || !email || !subject || !message) {
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 }
+      );
+    }
 
-  return NextResponse.json({ success: true, message: "Message received" });
+    await db.contactMessage.create({
+      data: {
+        name,
+        email,
+        category: category || null,
+        subject,
+        message,
+      },
+    });
+
+    return NextResponse.json({ success: true, message: "Message received" });
+  } catch {
+    return NextResponse.json(
+      { error: "Failed to send message" },
+      { status: 500 }
+    );
+  }
 }

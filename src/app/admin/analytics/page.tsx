@@ -34,10 +34,10 @@ export default function AdminAnalyticsPage() {
   return (
     <div className="max-w-container-max mx-auto">
       <div className="mb-8">
-        <h1 className="font-display text-headline-md text-on-surface mb-1">
+        <h1 className="font-headline-md text-headline-md text-on-surface mb-1">
           Analytics
         </h1>
-        <p className="font-body text-body-md text-on-surface-variant">
+        <p className="font-body-md text-body-md text-on-surface-variant">
           Website traffic, downloads, and user acquisition data
         </p>
       </div>
@@ -45,13 +45,13 @@ export default function AdminAnalyticsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Geographic Distribution */}
         <div className="bg-surface-container border border-surface-stroke rounded-xl p-6">
-          <h2 className="font-display text-lg text-on-surface mb-6">
+          <h2 className="font-headline-md text-lg text-on-surface mb-6">
             Top Countries
           </h2>
           <div className="space-y-3">
             {countries.map((country) => (
               <div key={country.name} className="flex items-center gap-3">
-                <span className="font-body text-body-md text-on-surface w-32">
+                <span className="font-body-md text-body-md text-on-surface w-32">
                   {country.name}
                 </span>
                 <div className="flex-1 h-2 bg-surface-stroke/30 rounded-full overflow-hidden">
@@ -60,7 +60,7 @@ export default function AdminAnalyticsPage() {
                     style={{ width: `${country.pct}%` }}
                   />
                 </div>
-                <span className="font-mono text-label-mono text-text-dimmed w-10 text-right">
+                <span className="font-label-mono text-label-mono text-text-dimmed w-10 text-right">
                   {country.pct}%
                 </span>
               </div>
@@ -70,13 +70,13 @@ export default function AdminAnalyticsPage() {
 
         {/* Acquisition Sources */}
         <div className="bg-surface-container border border-surface-stroke rounded-xl p-6">
-          <h2 className="font-display text-lg text-on-surface mb-6">
+          <h2 className="font-headline-md text-lg text-on-surface mb-6">
             Acquisition Sources
           </h2>
           <div className="space-y-3">
             {sources.map((source) => (
               <div key={source.name} className="flex items-center gap-3">
-                <span className="font-body text-body-md text-on-surface w-32">
+                <span className="font-body-md text-body-md text-on-surface w-32">
                   {source.name}
                 </span>
                 <div className="flex-1 h-2 bg-surface-stroke/30 rounded-full overflow-hidden">
@@ -85,7 +85,7 @@ export default function AdminAnalyticsPage() {
                     style={{ width: `${source.pct}%` }}
                   />
                 </div>
-                <span className="font-mono text-label-mono text-text-dimmed w-10 text-right">
+                <span className="font-label-mono text-label-mono text-text-dimmed w-10 text-right">
                   {source.pct}%
                 </span>
               </div>
@@ -95,13 +95,13 @@ export default function AdminAnalyticsPage() {
 
         {/* Version Adoption */}
         <div className="bg-surface-container border border-surface-stroke rounded-xl p-6">
-          <h2 className="font-display text-lg text-on-surface mb-6">
+          <h2 className="font-headline-md text-lg text-on-surface mb-6">
             Version Adoption
           </h2>
           <div className="space-y-3">
             {versions.map((version) => (
               <div key={version.version} className="flex items-center gap-3">
-                <span className="font-mono text-label-mono text-on-surface w-32">
+                <span className="font-label-mono text-label-mono text-on-surface w-32">
                   {version.version}
                 </span>
                 <div className="flex-1 h-2 bg-surface-stroke/30 rounded-full overflow-hidden">
@@ -110,7 +110,7 @@ export default function AdminAnalyticsPage() {
                     style={{ width: `${version.pct}%` }}
                   />
                 </div>
-                <span className="font-mono text-label-mono text-text-dimmed w-10 text-right">
+                <span className="font-label-mono text-label-mono text-text-dimmed w-10 text-right">
                   {version.pct}%
                 </span>
               </div>
@@ -120,7 +120,7 @@ export default function AdminAnalyticsPage() {
 
         {/* Download Funnel */}
         <div className="bg-surface-container border border-surface-stroke rounded-xl p-6">
-          <h2 className="font-display text-lg text-on-surface mb-6">
+          <h2 className="font-headline-md text-lg text-on-surface mb-6">
             Download Funnel
           </h2>
           <div className="space-y-4">
@@ -132,7 +132,7 @@ export default function AdminAnalyticsPage() {
               { label: "First Launch (est.)", value: "4,821", width: "34%" },
             ].map((item) => (
               <div key={item.label} className="flex items-center gap-3">
-                <span className="font-body text-body-md text-on-surface w-40">
+                <span className="font-body-md text-body-md text-on-surface w-40">
                   {item.label}
                 </span>
                 <div className="flex-1 h-2 bg-surface-stroke/30 rounded-full overflow-hidden">
@@ -141,7 +141,7 @@ export default function AdminAnalyticsPage() {
                     style={{ width: item.width }}
                   />
                 </div>
-                <span className="font-mono text-label-mono text-on-surface w-16 text-right">
+                <span className="font-label-mono text-label-mono text-on-surface w-16 text-right">
                   {item.value}
                 </span>
               </div>
