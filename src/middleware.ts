@@ -1,28 +1,31 @@
-import { auth } from "@/lib/auth";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
 const publicRoutes = ["/admin/login"];
 const apiAuthPrefix = "/api/auth";
 
-export default auth((req) => {
-  const { nextUrl } = req;
-  const isLoggedIn = !!req.auth;
-  const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
-  const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
 
-  if (isApiAuthRoute) return;
+  if (pathname.startsWith(apiAuthPrefix)) return;
+
+  const sessionToken =
+    request.cookies.get("next-auth.session-token")?.value ||
+    request.cookies.get("__Secure-next-auth.session-token")?.value;
+
+  const isLoggedIn = !!sessionToken;
+  const isPublicRoute = publicRoutes.includes(pathname);
 
   if (isPublicRoute) {
     if (isLoggedIn) {
-      return NextResponse.redirect(new URL("/admin", nextUrl));
+      return NextResponse.redirect(new URL("/admin", request.url));
     }
     return;
   }
 
   if (!isLoggedIn) {
-    return NextResponse.redirect(new URL("/admin/login", nextUrl));
+    return NextResponse.redirect(new URL("/admin/login", request.url));
   }
-});
+}
 
 export const config = {
   matcher: ["/admin/:path*"],
