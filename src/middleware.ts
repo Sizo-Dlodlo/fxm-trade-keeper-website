@@ -1,18 +1,30 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { jwtVerify } from "jose";
+
+const secret = new TextEncoder().encode(
+  process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET
+);
 
 const publicRoutes = ["/admin/login"];
 const apiAuthPrefix = "/api/auth";
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (pathname.startsWith(apiAuthPrefix)) return;
 
-  const sessionToken =
-    request.cookies.get("next-auth.session-token")?.value ||
-    request.cookies.get("__Secure-next-auth.session-token")?.value;
+  const sessionCookie = request.cookies.get("session")?.value;
 
-  const isLoggedIn = !!sessionToken;
+  let isLoggedIn = false;
+  if (sessionCookie) {
+    try {
+      await jwtVerify(sessionCookie, secret);
+      isLoggedIn = true;
+    } catch {
+      isLoggedIn = false;
+    }
+  }
+
   const isPublicRoute = publicRoutes.includes(pathname);
 
   if (isPublicRoute) {

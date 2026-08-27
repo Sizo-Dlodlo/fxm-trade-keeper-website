@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { signOut } from "next-auth/react";
+import { usePathname, useRouter } from "next/navigation";
 
 const navItems = [
   { href: "/admin", label: "Overview", icon: "dashboard" },
@@ -14,6 +13,13 @@ const navItems = [
 
 export default function AdminSidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  async function handleSignOut() {
+    await fetch("/api/auth/logout", { method: "POST" });
+    router.push("/admin/login");
+    router.refresh();
+  }
 
   return (
     <>
@@ -63,7 +69,7 @@ export default function AdminSidebar() {
           </Link>
         ))}
         <button
-          onClick={() => signOut({ callbackUrl: "/admin/login" })}
+          onClick={handleSignOut}
           className="flex items-center gap-3 py-3 px-4 rounded font-body-md text-body-md text-data-down hover:bg-data-down/10 w-full"
         >
           <span className="material-symbols-outlined">logout</span>
@@ -115,7 +121,7 @@ export default function AdminSidebar() {
             View Site
           </Link>
           <button
-            onClick={() => signOut({ callbackUrl: "/admin/login" })}
+            onClick={handleSignOut}
             className="flex items-center gap-3 py-2.5 px-4 rounded text-data-down hover:bg-data-down/10 transition-colors font-body-md text-body-md w-full"
           >
             <span className="material-symbols-outlined">logout</span>
