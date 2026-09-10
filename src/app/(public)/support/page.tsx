@@ -12,46 +12,47 @@ const sections = [
     icon: "rocket_launch",
     title: "Getting Started",
     articles: [
-      "Initial Setup & Workspace Configuration",
-      "Connecting your first Broker Account",
-      "Quick Start Video Walkthrough",
+      { title: "Initial Setup & Workspace Configuration", href: "/guides/how-to-journal-forex-trades" },
+      { title: "Connecting your first Broker Account", href: "/guides" },
+      { title: "Quick Start Video Walkthrough", href: "/download" },
     ],
   },
   {
     icon: "download",
     title: "Installation",
     articles: [
-      "Windows Installer Guide",
-      "Portable Edition Setup",
-      "System Requirements",
+      { title: "Windows Installer Guide", href: "/download" },
+      { title: "Portable Edition Setup", href: "/download#portable" },
+      { title: "macOS Installer Guide", href: "/download#mac" },
+      { title: "System Requirements", href: "/download" },
     ],
   },
   {
     icon: "upload_file",
     title: "Import & Export",
     articles: [
-      "MT5 Trade Import",
-      "MT4 Trade Import",
-      "CSV/XLSX Import",
-      ".tkjournal Backup & Transfer",
+      { title: "MT5 Trade Import", href: "/guides/import-mt5-trades" },
+      { title: "MT4 Trade Import", href: "/guides/import-mt4-trades" },
+      { title: "CSV/XLSX Import", href: "/guides" },
+      { title: ".tkjournal Backup & Transfer", href: "/guides/backup-journal" },
     ],
   },
   {
     icon: "psychology",
     title: "AI Features",
     articles: [
-      "AI Strategy Generator",
-      "Per-Strategy AI Analysis",
-      "AI Settings Configuration",
+      { title: "AI Strategy Generator", href: "/guides/strategy-tracking" },
+      { title: "Per-Strategy AI Analysis", href: "/guides/edge-analytics-guide" },
+      { title: "AI Settings Configuration", href: "/blog/fxm-trade-keeper-v2-release" },
     ],
   },
   {
     icon: "bug_report",
     title: "Troubleshooting",
     articles: [
-      "Common Errors",
-      "Database Recovery",
-      "Performance Issues",
+      { title: "Common Errors", href: "/support" },
+      { title: "Database Recovery", href: "/guides/backup-journal" },
+      { title: "Performance Issues", href: "/support" },
     ],
   },
 ];
@@ -64,7 +65,7 @@ export default function SupportPage() {
         <span className="font-label-mono text-label-mono text-primary bg-primary/10 px-3 py-1 rounded">
           HELP CENTER
         </span>
-        <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-2">
+        <h1 className="font-display-xl text-display-xl-mobile md:text-display-xl text-on-background mb-2">
           How Can We Help You?
         </h1>
         <p className="font-body-lg text-body-lg text-on-surface-variant">
@@ -104,15 +105,15 @@ export default function SupportPage() {
               </h3>
               <ul className="space-y-2">
                 {section.articles.map((article) => (
-                  <li key={article}>
+                  <li key={article.title}>
                     <Link
-                      href="#"
+                      href={article.href}
                       className="flex items-center gap-2 font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
                     >
                       <span className="material-symbols-outlined text-sm text-primary">
                         chevron_right
                       </span>
-                      {article}
+                      {article.title}
                     </Link>
                   </li>
                 ))}

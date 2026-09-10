@@ -1,0 +1,9 @@
+# Prevent secret-bearing env files and build artifacts from being uploaded.
+# NOTE: public/downloads/*.exe must NOT be ignored - they are served on the site.
+.env
+.env.local
+.env.*.local
+node_modules
+.next
+*.log
+*.tsbuildinfo

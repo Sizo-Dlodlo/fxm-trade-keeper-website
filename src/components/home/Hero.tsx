@@ -14,7 +14,7 @@ export default function Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="font-display-lg text-display-lg text-on-surface">
+        <h1 className="font-display-lg text-display-xl-mobile md:text-display-xl text-on-surface">
           Your Trading Journal.<br />
           <span className="text-primary">Your Data. Your Edge.</span>
         </h1>
@@ -35,7 +35,7 @@ export default function Hero() {
             <span className="material-symbols-outlined group-hover:-translate-y-1 transition-transform">
               download
             </span>
-            Download for Windows
+            Download Free
           </Link>
           <Link
             href="/download#portable"
@@ -46,30 +46,30 @@ export default function Hero() {
         </div>
 
         {/* Trust Strip */}
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mt-12 pt-8 border-t border-surface-stroke/50 w-full text-on-surface-variant font-label-mono text-label-mono">
-          <div className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-primary text-[18px]">
+        <div className="flex flex-wrap justify-center gap-x-10 gap-y-4 mt-14 pt-8 border-t border-surface-stroke/50 w-full text-on-surface-variant font-label-mono text-label-mono text-lg">
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[26px]">
               check_circle
             </span>{" "}
-            Free
+            <span className="text-on-surface font-semibold">Free</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-primary text-[18px]">
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[26px]">
               check_circle
             </span>{" "}
-            Offline
+            <span className="text-on-surface font-semibold">Offline</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-primary text-[18px]">
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[26px]">
               check_circle
             </span>{" "}
-            Private
+            <span className="text-on-surface font-semibold">Private</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-primary text-[18px]">
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[26px]">
               check_circle
             </span>{" "}
-            No subscription required
+            <span className="text-on-surface font-semibold">No subscription required</span>
           </div>
         </div>
       </div>

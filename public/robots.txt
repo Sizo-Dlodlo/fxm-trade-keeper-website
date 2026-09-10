@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
-Sitemap: https://fxmtradekeeper.com/sitemap.xml
+Sitemap: https://fxm-trade-keeper-website.vercel.app/sitemap.xml

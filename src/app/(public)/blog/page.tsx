@@ -1,50 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { posts } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title: "Blog",
   description:
     "Trading insights, product updates, and educational content from FX Momentum.",
 };
-
-const posts = [
-  {
-    slug: "why-local-first-trading-journal",
-    title: "Why a Local-First Trading Journal Matters",
-    excerpt:
-      "In an era of cloud everything, here's why keeping your trading data local is a competitive advantage.",
-    category: "Trading Journaling",
-    date: "August 20, 2026",
-    readTime: "5 min read",
-  },
-  {
-    slug: "fxm-trade-keeper-v2-release",
-    title: "FXM Trade Keeper v2.0 — What's New",
-    excerpt:
-      "SQLite persistence, portable edition, AI strategy generator, and more. Here's everything in v2.0.",
-    category: "Product Updates",
-    date: "August 15, 2026",
-    readTime: "3 min read",
-  },
-  {
-    slug: "prop-firm-risk-management",
-    title: "Risk Management for Prop Firm Traders",
-    excerpt:
-      "How to use Trade Keeper's risk manager to stay within prop firm rules and maximize your evaluation.",
-    category: "Risk Management",
-    date: "August 10, 2026",
-    readTime: "7 min read",
-  },
-  {
-    slug: "r-multiples-explained",
-    title: "R-Multiples Explained: Why They Matter",
-    excerpt:
-      "Understanding R-multiples is key to evaluating your trading system. Here's how to use them.",
-    category: "Trading Analytics",
-    date: "August 5, 2026",
-    readTime: "6 min read",
-  },
-];
 
 export default function BlogPage() {
   return (
@@ -54,7 +16,7 @@ export default function BlogPage() {
         <span className="font-label-mono text-label-mono text-primary bg-primary/10 px-3 py-1 rounded">
           BLOG
         </span>
-        <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-2">
+        <h1 className="font-display-xl text-display-xl-mobile md:text-display-xl text-on-background mb-2">
           Trading Insights &amp; Updates
         </h1>
         <p className="font-body-lg text-body-lg text-on-surface-variant">

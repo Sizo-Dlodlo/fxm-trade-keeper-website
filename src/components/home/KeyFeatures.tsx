@@ -35,7 +35,7 @@ export default function KeyFeatures() {
   return (
     <section className="w-full py-24 px-4 md:px-margin-desktop max-w-container-max mx-auto">
       <div className="text-center mb-16">
-        <h2 className="font-headline-md text-headline-md text-on-surface mb-2">
+        <h2 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-2">
           Everything You Need
         </h2>
         <p className="font-body-md text-body-md text-on-surface-variant">

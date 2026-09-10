@@ -1,0 +1,54 @@
+
+> fxm-trade-keeper-website@0.1.0 dev
+> next dev --webpack
+
+▲ Next.js 16.3.3 (webpack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.3.54:3000
+- Environments: .env.local, .env
+✓ Ready in 1421ms
+⚠ Attempted to load @next/swc-win32-x64-msvc, but an error occurred: \\?\C:\FX MOMENTUM\APP DEV OFFICE\FXM Trade Keeper Website v1.0\fxm-trade-keeper-website\node_modules\@next\swc-win32-x64-msvc\next-swc.win32-x64-msvc.node is not a valid Win32 application.
+\\?\C:\FX MOMENTUM\APP DEV OFFICE\FXM Trade Keeper Website v1.0\fxm-trade-keeper-website\node_modules\@next\swc-win32-x64-msvc\next-swc.win32-x64-msvc.node
+✓ Running next.config.ts took 317ms
+  Skipping creating a lockfile at C:\FX MOMENTUM\APP DEV OFFICE\FXM Trade Keeper Website v1.0\fxm-trade-keeper-website\.next\dev\lock because we're using WASM bindings
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead.
+
+  To migrate automatically, run:
+  npx @next/codemod@canary middleware-to-proxy .
+
+  Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+
+○ Compiling /guides/[slug] ...
+ GET /guides/how-to-journal-forex-trades 200 in 7.9s (next.js: 6.2s, generate-params: 1394ms, application-code: 314ms)
+ GET /guides/import-mt5-trades 200 in 166ms (next.js: 7ms, generate-params: 57ms, application-code: 102ms)
+ GET /guides/import-mt4-trades 200 in 88ms (next.js: 5ms, generate-params: 0.0ms, application-code: 84ms)
+ GET /guides/risk-manager-guide 200 in 79ms (next.js: 4ms, generate-params: 0.0ms, application-code: 74ms)
+ GET /guides/edge-analytics-guide 200 in 88ms (next.js: 4ms, generate-params: 0.0ms, application-code: 84ms)
+ GET /guides/strategy-tracking 200 in 92ms (next.js: 5ms, generate-params: 0.0ms, application-code: 87ms)
+ GET /guides/backup-journal 200 in 85ms (next.js: 4ms, generate-params: 0.0ms, application-code: 81ms)
+ GET /guides/transfer-to-new-pc 200 in 84ms (next.js: 6ms, generate-params: 0.0ms, application-code: 78ms)
+ GET /blog/why-local-first-trading-journal 200 in 2.3s (next.js: 1110ms, generate-params: 1034ms, application-code: 195ms)
+ GET /blog/fxm-trade-keeper-v2-release 200 in 151ms (next.js: 5ms, generate-params: 56ms, application-code: 90ms)
+ GET /blog/prop-firm-risk-management 200 in 97ms (next.js: 5ms, generate-params: 0.0ms, application-code: 92ms)
+ GET /blog/r-multiples-explained 200 in 87ms (next.js: 4ms, generate-params: 0.0ms, application-code: 83ms)
+ GET /guides 200 in 934ms (next.js: 755ms, application-code: 178ms)
+ GET /blog 200 in 721ms (next.js: 556ms, application-code: 165ms)
+ GET / 200 in 1148ms (next.js: 983ms, application-code: 166ms)
+ GET /features 200 in 1070ms (next.js: 903ms, application-code: 166ms)
+ GET /download 200 in 938ms (next.js: 802ms, application-code: 136ms)
+ GET /reviews 200 in 924ms (next.js: 783ms, application-code: 141ms)
+ GET /screenshots 200 in 1260ms (next.js: 1019ms, application-code: 241ms)
+ GET /releases 200 in 1066ms (next.js: 911ms, application-code: 155ms)
+ GET /resources 200 in 1008ms (next.js: 844ms, application-code: 165ms)
+ GET /community 200 in 1140ms (next.js: 960ms, application-code: 180ms)
+ GET /support 200 in 1237ms (next.js: 1043ms, application-code: 194ms)
+ GET /about 200 in 1213ms (next.js: 1064ms, application-code: 148ms)
+ GET /contact 200 in 1168ms (next.js: 1018ms, application-code: 151ms)
+ GET /support-the-project 200 in 1651ms (next.js: 1405ms, application-code: 245ms)
+ GET /affiliate-disclosure 200 in 1306ms (next.js: 1174ms, application-code: 131ms)
+ GET /privacy 200 in 1383ms (next.js: 1240ms, application-code: 142ms)
+ GET /terms 200 in 1453ms (next.js: 1301ms, application-code: 152ms)
+ GET /cookies 200 in 1540ms (next.js: 1400ms, application-code: 140ms)
+ GET /disclaimer 200 in 1480ms (next.js: 1327ms, application-code: 153ms)
+ GET /admin/login 200 in 3.5s (next.js: 2.6s, proxy.ts: 597ms, application-code: 298ms)
+[?25h

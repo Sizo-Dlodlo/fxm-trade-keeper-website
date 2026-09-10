@@ -36,7 +36,7 @@ export default function ValueProposition() {
     <section className="w-full py-24 px-4 md:px-margin-desktop bg-surface-container-lowest border-y border-surface-stroke/30">
       <div className="max-w-container-max mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-headline-md text-headline-md text-on-surface mb-2">
+          <h2 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-2">
             Journal. Analyze. Improve.
           </h2>
           <p className="font-body-md text-body-md text-on-surface-variant">

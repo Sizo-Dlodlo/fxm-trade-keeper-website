@@ -24,9 +24,12 @@ export async function GET() {
       portableUrl: release.portableUrl,
       installerSize: release.installerSize,
       portableSize: release.portableSize,
-      sha256: release.sha256,
-      platform: release.platform,
-      architecture: release.architecture,
+      installerSha512: release.installerSha512,
+      portableSha512: release.portableSha512,
+      macUrl: release.macUrl,
+      macSize: release.macSize,
+      macSha256: release.macSha256,
+      changelog: release.changelog,
     });
   } catch {
     return NextResponse.json(

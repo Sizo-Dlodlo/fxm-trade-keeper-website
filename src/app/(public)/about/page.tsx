@@ -15,7 +15,7 @@ export default function AboutPage() {
         <span className="font-label-mono text-label-mono text-primary bg-primary/10 px-3 py-1 rounded">
           ABOUT FX MOMENTUM
         </span>
-        <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-2">
+        <h1 className="font-display-xl text-display-xl-mobile md:text-display-xl text-on-background mb-2">
           Built by Traders, Engineered for Precision
         </h1>
         <p className="font-body-lg text-body-lg text-on-surface-variant">

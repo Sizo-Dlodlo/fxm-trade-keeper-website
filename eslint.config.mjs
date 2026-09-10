@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Prisma seed scripts are standalone CommonJS Node scripts.
+    "prisma/**",
   ]),
 ]);
 

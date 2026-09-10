@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 export default function SupportTheProjectPage() {
@@ -23,7 +24,7 @@ export default function SupportTheProjectPage() {
         <span className="font-label-mono text-label-mono text-primary bg-primary/10 px-3 py-1 rounded">
           USER-OWNED. PRIVACY-FIRST.
         </span>
-        <h1 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface">
+        <h1 className="font-display-xl-mobile text-display-xl-mobile md:font-display-xl md:text-display-xl text-on-surface">
           Keep FXM Independent.
         </h1>
         <p className="font-body-lg text-body-lg text-text-dimmed">
@@ -93,18 +94,28 @@ export default function SupportTheProjectPage() {
 
           {/* Payment Methods */}
           <div className="flex flex-col sm:flex-row gap-4 mt-auto pt-4 border-t border-surface-stroke/50">
-            <button className="flex-1 bg-surface-container-highest hover:bg-surface-variant text-on-surface font-body-md text-body-md font-medium py-3 px-4 rounded border border-surface-stroke flex items-center justify-center gap-2 transition-colors">
+            <a
+              href="https://buymeacoffee.com/sizodlod"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 bg-[#FFDD00] hover:bg-[#f5d104] text-[#1d1d1f] font-body-md text-body-md font-semibold py-3 px-4 rounded flex items-center justify-center gap-2 transition-colors"
+            >
               <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
-                credit_card
+                coffee
               </span>
-              Credit Card / Stripe
-            </button>
-            <button className="flex-1 bg-[#003087] hover:bg-[#00205e] text-white font-body-md text-body-md font-medium py-3 px-4 rounded flex items-center justify-center gap-2 transition-colors">
+              Buy Me a Coffee
+            </a>
+            <a
+              href="https://www.paypal.me/captainpricee"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 bg-[#003087] hover:bg-[#00205e] text-white font-body-md text-body-md font-medium py-3 px-4 rounded flex items-center justify-center gap-2 transition-colors"
+            >
               <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
                 account_balance_wallet
               </span>
               PayPal
-            </button>
+            </a>
           </div>
         </div>
 
@@ -137,9 +148,9 @@ export default function SupportTheProjectPage() {
               <span>Priority support channel</span>
             </li>
           </ul>
-          <button className="w-full bg-transparent border border-primary text-primary hover:bg-primary/5 font-body-md text-body-md font-bold py-3 px-4 rounded transition-colors mt-auto">
+          <Link href="/contact" className="w-full bg-transparent border border-primary text-primary hover:bg-primary/5 font-body-md text-body-md font-bold py-3 px-4 rounded transition-colors mt-auto inline-flex items-center justify-center">
             Contact for Tiers
-          </button>
+          </Link>
         </div>
       </div>
     </main>

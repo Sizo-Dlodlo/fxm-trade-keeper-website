@@ -39,6 +39,34 @@ async function main() {
   }
 
   console.log("Default settings created");
+
+  // Seeded release if none exist
+  const releaseCount = await prisma.release.count();
+  if (releaseCount === 0) {
+    await prisma.release.create({
+      data: {
+        version: "2.0.0",
+        stable: true,
+        releaseDate: new Date("2026-08-26"),
+        changelog: [
+          "## New",
+          "- Portable Edition — run without installation",
+          "- SQLite persistence for reliable data storage",
+          "- .tkjournal export/import for backups and transfers",
+          "- Automatic local backups",
+          "- AI Strategy Generator",
+          "- Per-strategy AI analysis",
+          "- JSON/PDF strategy export",
+          "",
+          "## Improved",
+          "- Offline-first architecture",
+          "- Crash and error logging",
+          "- Performance optimizations",
+        ].join("\n"),
+      },
+    });
+    console.log("Seeded default v2.0.0 release");
+  }
 }
 
 main()

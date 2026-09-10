@@ -12,7 +12,7 @@ const featureRequests = [
   { title: "Cloud Backup & Sync", votes: 285, status: "Planned" },
   { title: "TradingView Integration", votes: 176, status: "Under Review" },
   { title: "Advanced AI Analysis", votes: 151, status: "Planned" },
-  { title: "Mac Version", votes: 132, status: "Under Review" },
+  { title: "Mac Version", votes: 132, status: "Released" },
 ];
 
 export default function CommunityPage() {
@@ -23,7 +23,7 @@ export default function CommunityPage() {
         <span className="font-label-mono text-label-mono text-primary bg-primary/10 px-3 py-1 rounded">
           COMMUNITY HUB
         </span>
-        <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-2">
+        <h1 className="font-display-xl text-display-xl-mobile md:text-display-xl text-on-background mb-2">
           Shape the Future of Trade Keeper
         </h1>
         <p className="font-body-lg text-body-lg text-on-surface-variant">

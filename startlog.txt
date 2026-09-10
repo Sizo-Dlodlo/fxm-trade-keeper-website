@@ -1,0 +1,7 @@
+▲ Next.js 16.3.3
+- Local:         http://localhost:3111
+- Network:       http://192.168.3.54:3111
+✓ Ready in 661ms
+⚠ Attempted to load @next/swc-win32-x64-msvc, but an error occurred: \\?\C:\FX MOMENTUM\APP DEV OFFICE\FXM Trade Keeper Website v1.0\fxm-trade-keeper-website\node_modules\@next\swc-win32-x64-msvc\next-swc.win32-x64-msvc.node is not a valid Win32 application.
+\\?\C:\FX MOMENTUM\APP DEV OFFICE\FXM Trade Keeper Website v1.0\fxm-trade-keeper-website\node_modules\@next\swc-win32-x64-msvc\next-swc.win32-x64-msvc.node
+✓ Running next.config.ts took 531ms

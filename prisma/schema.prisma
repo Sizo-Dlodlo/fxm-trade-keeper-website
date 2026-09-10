@@ -31,36 +31,53 @@ model Session {
 
 // Content models
 model Release {
-  id            String   @id @default(cuid())
-  version       String
-  stable        Boolean  @default(true)
-  releaseDate   DateTime @default(now())
-  installerUrl  String?
-  portableUrl   String?
-  installerSize Int?
-  portableSize  Int?
+  id              String   @id @default(cuid())
+  version         String
+  stable          Boolean  @default(true)
+  releaseDate     DateTime @default(now())
+  installerUrl    String?
+  portableUrl     String?
+  installerSize   Int?
+  portableSize    Int?
   installerSha512 String?
   portableSha512  String?
-  sha256        Json?
-  platform      String   @default("Windows")
-  architecture  String   @default("x64")
-  changelog     String?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  macUrl          String?
+  macSize         Int?
+  macSha256       String?
+  sha256          Json?
+  platform        String   @default("Windows")
+  architecture    String   @default("x64")
+  changelog       String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 }
 
 model Review {
-  id               String   @id @default(cuid())
-  rating           Int
-  title            String
-  body             String?
-  displayName      String
+  id                 String   @id @default(cuid())
+  rating             Int
+  title              String
+  body               String?
+  displayName        String
   applicationVersion String?
-  platform         String?
-  status           String   @default("pending") // pending, approved, rejected
-  featured         Boolean  @default(false)
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  platform           String?
+  status             String   @default("pending") // pending, approved, rejected
+  featured           Boolean  @default(false)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Comment {
+  id          String   @id @default(cuid())
+  contentType String // "guide" | "blog"
+  contentSlug String // slug of the guide or blog post
+  authorName  String
+  authorEmail String?
+  body        String
+  status      String   @default("pending") // pending, approved, rejected
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([contentType, contentSlug, status])
 }
 
 model ContactMessage {

@@ -1,78 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { guides } from "@/lib/guides";
 
 export const metadata: Metadata = {
   title: "Guides",
   description:
     "Learn how to use FXM Trade Keeper with our comprehensive guides. Trading journal tips, MT4/MT5 import tutorials, and more.",
 };
-
-const guides = [
-  {
-    slug: "how-to-journal-forex-trades",
-    title: "How to Journal Forex Trades Effectively",
-    excerpt:
-      "A complete guide to building a trading journal that actually improves your performance.",
-    category: "Trading Journaling",
-    popular: true,
-  },
-  {
-    slug: "import-mt5-trades",
-    title: "How to Import MT5 Trades into FXM Trade Keeper",
-    excerpt:
-      "Step-by-step guide to importing your MetaTrader 5 trade history.",
-    category: "MT5 Import",
-    popular: true,
-  },
-  {
-    slug: "import-mt4-trades",
-    title: "How to Import MT4 Trades",
-    excerpt:
-      "Learn how to export and import your MetaTrader 4 trading history.",
-    category: "MT4 Import",
-    popular: false,
-  },
-  {
-    slug: "risk-manager-guide",
-    title: "How to Use the FXM Risk Manager",
-    excerpt:
-      "Master position sizing, drawdown tracking, and prop-firm rule compliance.",
-    category: "Risk Management",
-    popular: false,
-  },
-  {
-    slug: "edge-analytics-guide",
-    title: "How to Read Edge Analytics",
-    excerpt:
-      "Understand R-multiples, expectancy, and performance metrics that matter.",
-    category: "Analytics",
-    popular: false,
-  },
-  {
-    slug: "strategy-tracking",
-    title: "How to Track Trading Strategies",
-    excerpt:
-      "Document, test, and refine your trading strategies with the Strategy Playbook.",
-    category: "Strategies",
-    popular: false,
-  },
-  {
-    slug: "backup-journal",
-    title: "How to Back Up Your Trading Journal",
-    excerpt:
-      "Protect your data with .tkjournal exports and automatic backups.",
-    category: "Data Management",
-    popular: false,
-  },
-  {
-    slug: "transfer-to-new-pc",
-    title: "How to Transfer Trade Keeper to Another PC",
-    excerpt:
-      "Move your journal to a new computer without losing any data.",
-    category: "Data Management",
-    popular: false,
-  },
-];
 
 export default function GuidesPage() {
   return (
@@ -82,7 +16,7 @@ export default function GuidesPage() {
         <span className="font-label-mono text-label-mono text-primary bg-primary/10 px-3 py-1 rounded">
           LEARN
         </span>
-        <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-2">
+        <h1 className="font-display-xl text-display-xl-mobile md:text-display-xl text-on-background mb-2">
           Guides &amp; Tutorials
         </h1>
         <p className="font-body-lg text-body-lg text-on-surface-variant">

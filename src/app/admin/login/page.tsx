@@ -1,6 +1,6 @@
 "use client";
-
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function AdminLoginPage() {
@@ -47,7 +47,7 @@ export default function AdminLoginPage() {
               admin_panel_settings
             </span>
           </div>
-          <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-2">
+          <h1 className="font-display-xl text-display-xl-mobile md:text-display-xl text-on-background mb-2">
             Admin Login
           </h1>
           <p className="font-body-md text-body-md text-on-surface-variant">
@@ -117,9 +117,9 @@ export default function AdminLoginPage() {
         </form>
 
         <p className="text-center mt-6 font-body-md text-body-md text-text-dimmed">
-          <a href="/" className="text-primary hover:brightness-110">
+          <Link href="/" className="text-primary hover:brightness-110">
             Back to site
-          </a>
+          </Link>
         </p>
       </div>
     </div>

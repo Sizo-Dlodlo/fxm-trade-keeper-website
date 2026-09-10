@@ -1,5 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 import { db } from "@/lib/db";
+
+export const dynamic = "force-dynamic";
+
+const resendApiKey = process.env.RESEND_API_KEY;
+const resendFrom =
+  process.env.RESEND_FROM_EMAIL || "FXM Trade Keeper <onboarding@resend.dev>";
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,7 +20,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    await db.contactMessage.create({
+    const record = await db.contactMessage.create({
       data: {
         name,
         email,
@@ -23,6 +30,40 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    // Notify the site owner by email (best-effort; never fails the request)
+    let toEmail = "";
+    try {
+      const setting = await db.setting.findUnique({
+        where: { key: "support_email" },
+      });
+      toEmail = setting?.value || "";
+    } catch {
+      toEmail = "";
+    }
+
+    if (resendApiKey && toEmail) {
+      try {
+        const resend = new Resend(resendApiKey);
+        await resend.emails.send({
+          from: resendFrom,
+          to: [toEmail],
+          subject: `[FXM Contact] ${subject}`,
+          html: `
+            <h2>New contact message — ${category || "General"}</h2>
+            <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+            <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+            <p><strong>Category:</strong> ${escapeHtml(category || "General")}</p>
+            <p><strong>Subject:</strong> ${escapeHtml(subject)}</p>
+            <p><strong>Message:</strong></p>
+            <p style="white-space:pre-wrap">${escapeHtml(message)}</p>
+          `,
+          replyTo: record.email,
+        });
+      } catch (emailError) {
+        console.error("Contact email notification failed:", emailError);
+      }
+    }
+
     return NextResponse.json({ success: true, message: "Message received" });
   } catch {
     return NextResponse.json(
@@ -30,4 +71,13 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }

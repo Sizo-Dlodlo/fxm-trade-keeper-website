@@ -11,7 +11,7 @@ export default function WhyLocal() {
               Privacy First
             </span>
           </div>
-          <h2 className="font-headline-md text-headline-md text-on-surface mb-6">
+          <h2 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6">
             Your Data Never Leaves Your Machine
           </h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant mb-6">

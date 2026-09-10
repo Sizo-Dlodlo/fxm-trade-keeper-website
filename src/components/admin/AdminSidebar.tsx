@@ -1,19 +1,94 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-const navItems = [
+type Counts = {
+  unreadMessages: number;
+  pendingReviews: number;
+  pendingComments: number;
+};
+
+type NavItemDef = {
+  href: string;
+  label: string;
+  icon: string;
+  notif?: keyof Counts;
+};
+
+const navItems: NavItemDef[] = [
   { href: "/admin", label: "Overview", icon: "dashboard" },
   { href: "/admin/releases", label: "Releases", icon: "deployed_code" },
-  { href: "/admin/reviews", label: "Reviews", icon: "star" },
+  { href: "/admin/reviews", label: "Reviews", icon: "star", notif: "pendingReviews" },
+  { href: "/admin/comments", label: "Comments", icon: "comment", notif: "pendingComments" },
   { href: "/admin/analytics", label: "Analytics", icon: "analytics" },
+  { href: "/admin/leads", label: "Leads", icon: "contact_mail" },
+  { href: "/admin/messages", label: "Messages", icon: "mail", notif: "unreadMessages" },
   { href: "/admin/settings", label: "Settings", icon: "settings" },
+  { href: "/admin/manual", label: "Manual", icon: "menu_book" },
 ];
+
+function NavItem({
+  label,
+  icon,
+  count,
+}: {
+  label: string;
+  icon: string;
+  count: number;
+}) {
+  return (
+    <span className="relative flex items-center gap-3">
+      <span className="material-symbols-outlined">{icon}</span>
+      {label}
+      {count > 0 && (
+        <span className="min-w-[18px] h-[18px] px-1 ml-auto inline-flex items-center justify-center rounded-full bg-data-down text-white text-[11px] font-bold leading-none">
+          {count > 99 ? "99+" : count}
+        </span>
+      )}
+    </span>
+  );
+}
 
 export default function AdminSidebar() {
   const pathname = usePathname();
   const router = useRouter();
+  const [counts, setCounts] = useState<Counts>({
+    unreadMessages: 0,
+    pendingReviews: 0,
+    pendingComments: 0,
+  });
+
+  useEffect(() => {
+    let active = true;
+    async function poll() {
+      try {
+        const res = await fetch("/api/notifications");
+        if (!res.ok) return;
+        const data = await res.json();
+        if (active)
+          setCounts({
+            unreadMessages: data.unreadMessages || 0,
+            pendingReviews: data.pendingReviews || 0,
+            pendingComments: data.pendingComments || 0,
+          });
+      } catch {
+        // ignore transient poll errors
+      }
+    }
+    poll();
+    const id = setInterval(poll, 15000);
+    return () => {
+      active = false;
+      clearInterval(id);
+    };
+  }, []);
+
+  function badgeFor(item: NavItemDef): number {
+    if (!item.notif) return 0;
+    return counts[item.notif] || 0;
+  }
 
   async function handleSignOut() {
     await fetch("/api/auth/logout", { method: "POST" });
@@ -64,8 +139,11 @@ export default function AdminSidebar() {
                 : "text-on-surface-variant hover:bg-surface-container hover:text-on-surface"
             }`}
           >
-            <span className="material-symbols-outlined">{item.icon}</span>
-            {item.label}
+            <NavItem
+              label={item.label}
+              icon={item.icon}
+              count={badgeFor(item)}
+            />
           </Link>
         ))}
         <button
@@ -106,8 +184,11 @@ export default function AdminSidebar() {
                   : "text-on-surface-variant hover:bg-surface-container hover:text-on-surface"
               }`}
             >
-              <span className="material-symbols-outlined">{item.icon}</span>
-              {item.label}
+              <NavItem
+                label={item.label}
+                icon={item.icon}
+                count={badgeFor(item)}
+              />
             </Link>
           ))}
         </nav>

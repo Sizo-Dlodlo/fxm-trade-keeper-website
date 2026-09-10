@@ -1,4 +1,6 @@
 import Link from "next/link";
+import NewsletterSignup from "./NewsletterSignup";
+import { db } from "@/lib/db";
 
 const footerLinks = {
   product: [
@@ -29,7 +31,17 @@ const footerLinks = {
   ],
 };
 
-export default function Footer() {
+export default async function Footer() {
+  let supportEmail = "";
+  try {
+    const setting = await db.setting.findUnique({
+      where: { key: "support_email" },
+    });
+    supportEmail = setting?.value || "";
+  } catch {
+    supportEmail = "";
+  }
+
   return (
     <footer className="w-full pt-20 pb-10 bg-surface-container-lowest border-t border-surface-stroke/30">
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-gutter px-4 md:px-margin-desktop max-w-container-max mx-auto mb-12">
@@ -118,11 +130,38 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Newsletter Opt-In */}
+      <div className="px-4 md:px-margin-desktop max-w-container-max mx-auto mb-10">
+        <div className="bg-surface-container border border-surface-stroke rounded-xl p-6 flex flex-col md:flex-row items-start md:items-center gap-6 relative overflow-hidden">
+          <div className="flex-1">
+            <h4 className="font-headline-md text-lg text-on-surface mb-1">
+              Stay in the loop
+            </h4>
+            <p className="font-body-md text-body-md text-text-dimmed">
+              Get release updates, guides, and trading tips. No spam, unsubscribe
+              anytime.
+            </p>
+          </div>
+          <div className="w-full md:max-w-md">
+            <NewsletterSignup />
+          </div>
+        </div>
+      </div>
+
       <div className="px-4 md:px-margin-desktop max-w-container-max mx-auto border-t border-surface-stroke/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="font-body-md text-body-md text-text-dimmed opacity-80">
           &copy; {new Date().getFullYear()} FX Momentum. All rights reserved.
           FXM Trade Keeper is a product of FX Momentum.
         </p>
+        {supportEmail && (
+          <a
+            href={`mailto:${supportEmail}`}
+            className="font-body-md text-body-md text-text-dimmed hover:text-primary transition-colors flex items-center gap-2"
+          >
+            <span className="material-symbols-outlined text-[18px]">mail</span>
+            {supportEmail}
+          </a>
+        )}
       </div>
     </footer>
   );

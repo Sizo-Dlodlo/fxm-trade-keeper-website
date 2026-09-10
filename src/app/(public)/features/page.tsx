@@ -12,7 +12,7 @@ export default function FeaturesPage() {
     <main className="flex-grow w-full max-w-container-max mx-auto px-4 md:px-margin-desktop py-12 md:py-20 flex flex-col gap-gutter">
       {/* Hero */}
       <header className="mb-8">
-        <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4">
+        <h1 className="font-display-xl text-display-xl-mobile md:text-display-xl text-on-background mb-4">
           Total Control Over Your<br />
           <span className="text-primary">Trading Performance</span>
         </h1>

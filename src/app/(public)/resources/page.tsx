@@ -68,7 +68,7 @@ export default function ResourcesPage() {
           <span className="font-mono text-label-caps bg-primary/10 text-primary px-3 py-1 rounded-full border border-primary/20 mb-6 tracking-widest uppercase">
             Resources
           </span>
-          <h1 className="font-display text-display-lg text-on-surface mb-6">
+          <h1 className="font-display text-display-xl-mobile md:text-display-xl text-on-surface mb-6">
             Trader Resources
           </h1>
           <p className="font-body text-body-lg text-on-surface-variant max-w-2xl">
