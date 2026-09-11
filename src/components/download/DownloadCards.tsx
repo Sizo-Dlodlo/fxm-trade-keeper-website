@@ -9,9 +9,9 @@ export default function DownloadCards() {
   const [copiedMacArm, setCopiedMacArm] = useState(false);
 
   const installerSha =
-    "7BufG2b6fasu6PDfDhnIs2OsBuxFTpNzD+JG8eiFz5s=";
+    "avxsTnINq37gPc5TYXGJwx9o0/86Mb8SgnyPfSPVddE=";
   const portableSha =
-    "ZTiGWHtAB1c1836bdv9JSo0jviTm0argtWnXbglZtQU=";
+    "v3Z3kgDnJHKiy7g/m/2x2TY/w7UGTiCcYz2Sdfetc4Q=";
   const macIntelSha =
     "UJL7M0cJDPV9cBZveTNSrYnWcccnD6hNu77nMVu0MRU=";
   const macArmSha =
