@@ -13,9 +13,9 @@ export default function DownloadCards() {
   const portableSha =
     "v3Z3kgDnJHKiy7g/m/2x2TY/w7UGTiCcYz2Sdfetc4Q=";
   const macIntelSha =
-    "UJL7M0cJDPV9cBZveTNSrYnWcccnD6hNu77nMVu0MRU=";
+    "7mvWVG7Oe8P1f4yNiPucmloPPexruF/15019v4IFqXc=";
   const macArmSha =
-    "IdkDFaIQBu0UA3hc5HoZupLHtKku2qbMAKy12hpbb1Y=";
+    "0HQzcyOzpQ7c+XdSeKife3Q4Cb6POLd5FX048k/38Gw=";
 
   const copyToClipboard = (
     text: string,
@@ -149,7 +149,7 @@ export default function DownloadCards() {
               </p>
               <div className="flex flex-wrap gap-4 font-label-mono text-label-mono text-text-dimmed">
                 <span>FXM-TradeKeeper-2.0.0-Mac-x64.zip</span>
-                <span>~99.6 MB</span>
+                <span>~99.7 MB</span>
                 <span className="bg-primary/10 text-primary px-2 py-0.5 rounded text-xs">
                   INTEL
                 </span>
@@ -160,7 +160,7 @@ export default function DownloadCards() {
               </p>
             </div>
             <a
-              href="https://drive.usercontent.google.com/download?id=1IOq2PCX3AVSZ7k39RCt5wuN1EXwznlHg&export=download&confirm=t&uuid=1IOq2PCX3AVSZ7k39RCt5wuN1EXwznlHg"
+              href="https://drive.usercontent.google.com/download?id=1qn2AVBbc-osvtR4meZJInjjBnr09SAKS&export=download&confirm=t&uuid=1qn2AVBbc-osvtR4meZJInjjBnr09SAKS"
               target="_blank"
               rel="noopener noreferrer"
               download
@@ -194,7 +194,7 @@ export default function DownloadCards() {
               </p>
               <div className="flex flex-wrap gap-4 font-label-mono text-label-mono text-text-dimmed">
                 <span>FXM-TradeKeeper-2.0.0-Mac-arm64.zip</span>
-                <span>~95.0 MB</span>
+                <span>~95.1 MB</span>
                 <span className="bg-primary/10 text-primary px-2 py-0.5 rounded text-xs">
                   NEW
                 </span>
@@ -205,7 +205,7 @@ export default function DownloadCards() {
               </p>
             </div>
             <a
-              href="https://drive.usercontent.google.com/download?id=1tdQciAfQHYqdgrf41YcM2_PNyPvG5QTb&export=download&confirm=t&uuid=1tdQciAfQHYqdgrf41YcM2_PNyPvG5QTb"
+              href="https://drive.usercontent.google.com/download?id=1NJx20e5NZaJy3Wff1jftFZH9x-HLzaaj&export=download&confirm=t&uuid=1NJx20e5NZaJy3Wff1jftFZH9x-HLzaaj"
               target="_blank"
               rel="noopener noreferrer"
               download
