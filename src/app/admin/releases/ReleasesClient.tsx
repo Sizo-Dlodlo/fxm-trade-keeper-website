@@ -16,6 +16,11 @@ type Release = {
   macUrl: string | null;
   macSize: number | null;
   macSha256: string | null;
+  macArmUrl: string | null;
+  macArmSize: number | null;
+  macArmSha256: string | null;
+  guideUrl: string | null;
+  pwaUrl: string | null;
   changelog: string | null;
 };
 
@@ -32,6 +37,11 @@ const EMPTY_FORM = {
   macUrl: "",
   macSize: "",
   macSha256: "",
+  macArmUrl: "",
+  macArmSize: "",
+  macArmSha256: "",
+  guideUrl: "",
+  pwaUrl: "",
   changelog: "",
 };
 
@@ -102,6 +112,11 @@ export default function AdminReleasesPage() {
       macUrl: r.macUrl || "",
       macSize: r.macSize ? String(r.macSize) : "",
       macSha256: r.macSha256 || "",
+      macArmUrl: r.macArmUrl || "",
+      macArmSize: r.macArmSize ? String(r.macArmSize) : "",
+      macArmSha256: r.macArmSha256 || "",
+      guideUrl: r.guideUrl || "",
+      pwaUrl: r.pwaUrl || "",
       changelog: r.changelog || "",
     });
     setError("");
@@ -424,45 +439,130 @@ export default function AdminReleasesPage() {
 
               <div className="border-t border-surface-stroke pt-4">
                 <h4 className="font-label-caps text-label-caps text-primary uppercase mb-4">
-                  macOS Binary
+                  Web App (PWA)
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div>
+                  <div className="md:col-span-2">
                     <label className="font-body-md text-body-md text-on-surface-variant block mb-1">
-                      macOS DMG URL
+                      PWA URL
                     </label>
                     <input
                       type="url"
-                      value={form.macUrl}
-                      onChange={(e) => set("macUrl", e.target.value)}
+                      value={form.pwaUrl}
+                      onChange={(e) => set("pwaUrl", e.target.value)}
                       className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded-lg px-4 py-3 font-label-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
-                      placeholder="https://dl.fxm.com/mac/..."
+                      placeholder="https://app.fxmtradekeeper.com"
                     />
+                    <span className="font-label-mono text-label-mono text-text-dimmed text-xs">
+                      Primary install option on the download page. Installable on
+                      Windows, macOS, Android and iPhone.
+                    </span>
                   </div>
-                  <div>
-                    <label className="font-body-md text-body-md text-on-surface-variant block mb-1">
-                      macOS DMG Size (bytes)
-                    </label>
-                    <input
-                      type="number"
-                      value={form.macSize}
-                      onChange={(e) => set("macSize", e.target.value)}
-                      className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded-lg px-4 py-3 font-label-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
-                      placeholder="e.g. 104279804"
-                    />
+                </div>
+              </div>
+
+              <div className="border-t border-surface-stroke pt-4">
+                <h4 className="font-label-caps text-label-caps text-primary uppercase mb-4">
+                  macOS Binaries
+                </h4>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                  <div className="border border-surface-stroke rounded-lg p-4 space-y-4">
+                    <h5 className="font-label-caps text-label-caps text-on-surface-variant uppercase">
+                      macOS Intel
+                    </h5>
+                    <div>
+                      <label className="font-body-md text-body-md text-on-surface-variant block mb-1">
+                        macOS (Intel) URL
+                      </label>
+                      <input
+                        type="url"
+                        value={form.macUrl}
+                        onChange={(e) => set("macUrl", e.target.value)}
+                        className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded-lg px-4 py-3 font-label-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                        placeholder="https://dl.fxm.com/mac/intel/..."
+                      />
+                    </div>
+                    <div>
+                      <label className="font-body-md text-body-md text-on-surface-variant block mb-1">
+                        macOS (Intel) Size (bytes)
+                      </label>
+                      <input
+                        type="number"
+                        value={form.macSize}
+                        onChange={(e) => set("macSize", e.target.value)}
+                        className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded-lg px-4 py-3 font-label-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                        placeholder="e.g. 104438170"
+                      />
+                    </div>
+                    <div>
+                      <label className="font-body-md text-body-md text-on-surface-variant block mb-1">
+                        macOS (Intel) SHA-256
+                      </label>
+                      <input
+                        type="text"
+                        value={form.macSha256}
+                        onChange={(e) => set("macSha256", e.target.value)}
+                        className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded-lg px-4 py-3 font-label-mono text-[12px] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                        placeholder="Enter SHA-256 hash"
+                      />
+                    </div>
                   </div>
-                  <div className="md:col-span-2">
-                    <label className="font-body-md text-body-md text-on-surface-variant block mb-1">
-                      macOS DMG SHA-256
-                    </label>
-                    <input
-                      type="text"
-                      value={form.macSha256}
-                      onChange={(e) => set("macSha256", e.target.value)}
-                      className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded-lg px-4 py-3 font-label-mono text-[12px] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
-                      placeholder="Enter SHA-256 hash"
-                    />
+                  <div className="border border-surface-stroke rounded-lg p-4 space-y-4">
+                    <h5 className="font-label-caps text-label-caps text-on-surface-variant uppercase">
+                      Apple Silicon (M-series)
+                    </h5>
+                    <div>
+                      <label className="font-body-md text-body-md text-on-surface-variant block mb-1">
+                        macOS (Apple Silicon) URL
+                      </label>
+                      <input
+                        type="url"
+                        value={form.macArmUrl}
+                        onChange={(e) => set("macArmUrl", e.target.value)}
+                        className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded-lg px-4 py-3 font-label-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                        placeholder="https://dl.fxm.com/mac/arm/..."
+                      />
+                    </div>
+                    <div>
+                      <label className="font-body-md text-body-md text-on-surface-variant block mb-1">
+                        macOS (Apple Silicon) Size (bytes)
+                      </label>
+                      <input
+                        type="number"
+                        value={form.macArmSize}
+                        onChange={(e) => set("macArmSize", e.target.value)}
+                        className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded-lg px-4 py-3 font-label-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                        placeholder="e.g. 99614720"
+                      />
+                    </div>
+                    <div>
+                      <label className="font-body-md text-body-md text-on-surface-variant block mb-1">
+                        macOS (Apple Silicon) SHA-256
+                      </label>
+                      <input
+                        type="text"
+                        value={form.macArmSha256}
+                        onChange={(e) => set("macArmSha256", e.target.value)}
+                        className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded-lg px-4 py-3 font-label-mono text-[12px] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                        placeholder="Enter SHA-256 hash"
+                      />
+                    </div>
                   </div>
+                </div>
+                <div className="mt-5">
+                  <label className="font-body-md text-body-md text-on-surface-variant block mb-1">
+                    Mac Install Guide URL
+                  </label>
+                  <input
+                    type="url"
+                    value={form.guideUrl}
+                    onChange={(e) => set("guideUrl", e.target.value)}
+                    className="w-full bg-surface-dim border border-surface-stroke text-on-surface rounded-lg px-4 py-3 font-label-mono text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                    placeholder="https://fxmtradekeeper.com/downloads/FXM-Trade-Keeper-Mac-Install-Guide.pdf"
+                  />
+                  <span className="font-label-mono text-label-mono text-text-dimmed text-xs">
+                    PDF guide shown on the download page for first-time Mac users.
+                  </span>
                 </div>
               </div>
 

@@ -57,6 +57,11 @@ export async function POST(request: NextRequest) {
       macUrl,
       macSize,
       macSha256,
+      macArmUrl,
+      macArmSize,
+      macArmSha256,
+      guideUrl,
+      pwaUrl,
       changelog,
     } = body;
 
@@ -81,6 +86,11 @@ export async function POST(request: NextRequest) {
         macUrl: macUrl || null,
         macSize: macSize ? parseInt(macSize) : null,
         macSha256: macSha256 || null,
+        macArmUrl: macArmUrl || null,
+        macArmSize: macArmSize ? parseInt(macArmSize) : null,
+        macArmSha256: macArmSha256 || null,
+        guideUrl: guideUrl || null,
+        pwaUrl: pwaUrl || null,
         changelog: changelog || null,
       },
     });
@@ -128,6 +138,14 @@ export async function PATCH(request: NextRequest) {
     if (data.macSize !== undefined)
       patch.macSize = data.macSize ? parseInt(data.macSize) : null;
     if (data.macSha256 !== undefined) patch.macSha256 = data.macSha256;
+    if (data.macArmUrl !== undefined) patch.macArmUrl = data.macArmUrl;
+    if (data.macArmSize !== undefined)
+      patch.macArmSize = data.macArmSize
+        ? parseInt(data.macArmSize)
+        : null;
+    if (data.macArmSha256 !== undefined) patch.macArmSha256 = data.macArmSha256;
+    if (data.guideUrl !== undefined) patch.guideUrl = data.guideUrl;
+    if (data.pwaUrl !== undefined) patch.pwaUrl = data.pwaUrl;
     if (data.changelog !== undefined) patch.changelog = data.changelog;
 
     const release = await db.release.update({ where: { id }, data: patch });

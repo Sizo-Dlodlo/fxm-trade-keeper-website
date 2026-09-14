@@ -272,3 +272,14 @@ body {
 .animate-scale-in {
   animation: scale-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Print support for admin reports */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

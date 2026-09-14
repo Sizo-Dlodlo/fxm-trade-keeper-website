@@ -44,6 +44,10 @@ model Release {
   macUrl          String?
   macSize         Int?
   macSha256       String?
+  macArmUrl       String?
+  macArmSize      Int?
+  macArmSha256    String?
+  guideUrl        String?
   pwaUrl          String?
   sha256          Json?
   platform        String   @default("Windows")

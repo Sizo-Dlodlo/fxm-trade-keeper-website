@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { jwtVerify } from "jose";
@@ -89,13 +90,22 @@ export default async function AdminDashboard() {
 
   return (
     <div className="max-w-container-max mx-auto">
-      <div className="mb-8">
-        <h1 className="font-headline-md text-headline-md text-on-surface mb-1">
-          Platform Overview
-        </h1>
-        <p className="font-body-md text-body-md text-on-surface-variant">
-          Live metrics and performance data
-        </p>
+      <div className="mb-8 flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 className="font-headline-md text-headline-md text-on-surface mb-1">
+            Platform Overview
+          </h1>
+          <p className="font-body-md text-body-md text-on-surface-variant">
+            Live metrics and performance data
+          </p>
+        </div>
+        <Link
+          href="/admin/reports"
+          className="bg-primary text-on-primary font-headline-md text-base px-6 py-3 rounded hover:brightness-110 transition-all flex items-center gap-2"
+        >
+          <span className="material-symbols-outlined text-[20px]">description</span>
+          Export Reports
+        </Link>
       </div>
 
       {/* KPI Grid */}

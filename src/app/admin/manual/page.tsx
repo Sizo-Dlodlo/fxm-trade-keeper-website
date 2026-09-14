@@ -45,11 +45,13 @@ const SECTIONS: Section[] = [
     blurb:
       "Manage the download files offered on the website. Each release can hold Windows and macOS versions.",
     steps: [
-      "Click “Add Release” or “Edit” on an existing release to open the form.",
-      "Enter the version number and release date.",
+      "Click “Create Release” or the edit pencil on an existing release to open the form.",
+      "Enter the version number and release date, and tick “Stable release” for the current production version.",
       "For Windows, paste the Setup (.exe) and Portable (.exe) download URLs, their file sizes, and their SHA-256 checksums.",
-      "For macOS, paste the DMG download URL, its file size, and its SHA-256 checksum. (macOS installers are offered for both Intel and Apple Silicon Macs on the download page.)",
-      "Save the release. The download page will show whatever you enter here.",
+      "For macOS, paste the Intel and Apple Silicon (M-series) download URLs, sizes, and checksums. Both are offered on the download page.",
+      "The Mac Install Guide URL points to the PDF guide published alongside the downloads.",
+      "The PWA URL is the primary install option shown first on the download page.",
+      "These records document the downloads available on the site, so keep them in sync with what is actually published.",
     ],
   },
   {
@@ -101,6 +103,18 @@ const SECTIONS: Section[] = [
       "“Recent Events” lists the latest anonymized events with truncated install IDs.",
       "Users can disable collection at any time from Settings → Preferences → Usage Analytics in the app.",
       "Telemetry is anonymous — no names, emails, trade content, or PnL is ever collected.",
+    ],
+  },
+  {
+    icon: "description",
+    title: "Reports",
+    blurb:
+      "Export site data as CSV files or printable reports you can save as PDF and email.",
+    steps: [
+      "“Printable Reports” open a clean, print-ready view of Overview, Analytics, or Telemetry.",
+      "Use the “Print / Save as PDF” button (or Command/Ctrl + P) to save the report as a PDF you can email.",
+      "“Download CSV” saves each dataset as a spreadsheet file you can open in Excel, Numbers, or Google Sheets.",
+      "Exports only include data you are allowed to see, and every CSV opens safely anywhere.",
     ],
   },
   {
