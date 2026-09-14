@@ -37,6 +37,7 @@ const SECTIONS: Section[] = [
     steps: [
       "Top cards show your key numbers: total downloads, pending reviews, pending comments, reviews, comments, newsletter subscribers, messages, and the latest release.",
       "Recent download events list the most recent installs so you can see how the site is being used at a glance.",
+      "The “Export Reports” button at the top right opens the Reports page, where you can download spreadsheets or save printable PDF reports.",
     ],
   },
   {
@@ -111,9 +112,10 @@ const SECTIONS: Section[] = [
     blurb:
       "Export site data as CSV files or printable reports you can save as PDF and email.",
     steps: [
+      "Reach this page from the “Reports” link in the sidebar or the “Export Reports” button on the Overview page.",
       "“Printable Reports” open a clean, print-ready view of Overview, Analytics, or Telemetry.",
-      "Use the “Print / Save as PDF” button (or Command/Ctrl + P) to save the report as a PDF you can email.",
-      "“Download CSV” saves each dataset as a spreadsheet file you can open in Excel, Numbers, or Google Sheets.",
+      "Use the “Print / Save as PDF” button (or Command/Ctrl + P) on the opened report to save it as a PDF you can email.",
+      "“Download CSV” saves each dataset (Downloads, Telemetry, Reviews, Comments, Leads, Messages, Releases) as a spreadsheet file you can open in Excel, Numbers, or Google Sheets.",
       "Exports only include data you are allowed to see, and every CSV opens safely anywhere.",
     ],
   },
@@ -209,7 +211,9 @@ export default async function AdminManualPage() {
         </div>
         <p className="font-body-md text-body-md text-on-surface-variant">
           The Admin Console lets you manage everything about the FXM Trade Keeper
-          website from one place. Use the links on the left to move between areas.
+          website from one place. Use the links on the left to move between areas —
+          Overview, Releases, Reviews, Comments, Analytics, Telemetry, Reports,
+          Leads, Messages, and Settings.
           Red badges next to “Reviews”, “Comments”, and “Messages” show items that
           are waiting for your attention (they refresh automatically every 15 seconds).
           When you are finished, use “Sign Out” at the bottom of the sidebar.
