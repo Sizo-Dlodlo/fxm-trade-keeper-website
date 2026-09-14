@@ -89,6 +89,21 @@ const SECTIONS: Section[] = [
     ],
   },
   {
+    icon: "monitoring",
+    title: "Telemetry",
+    blurb:
+      "A read-only dashboard of anonymous usage data collected from the FXM Trade Keeper web app.",
+    steps: [
+      "The top cards show total events, events today, active installs in the last 7 days, and lifetime installs.",
+      "“Events Over Time” shows the daily event volume for the last 30 days.",
+      "“Top Event Types” breaks down events like app launches, page views, trade creation, and errors.",
+      "“Platform” and “App Version” show which environments your users run.",
+      "“Recent Events” lists the latest anonymized events with truncated install IDs.",
+      "Users can disable collection at any time from Settings → Preferences → Usage Analytics in the app.",
+      "Telemetry is anonymous — no names, emails, trade content, or PnL is ever collected.",
+    ],
+  },
+  {
     icon: "contact_mail",
     title: "Leads",
     blurb:

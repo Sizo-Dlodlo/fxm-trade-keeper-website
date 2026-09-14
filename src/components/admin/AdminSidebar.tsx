@@ -23,6 +23,7 @@ const navItems: NavItemDef[] = [
   { href: "/admin/reviews", label: "Reviews", icon: "star", notif: "pendingReviews" },
   { href: "/admin/comments", label: "Comments", icon: "comment", notif: "pendingComments" },
   { href: "/admin/analytics", label: "Analytics", icon: "analytics" },
+  { href: "/admin/telemetry", label: "Telemetry", icon: "monitoring" },
   { href: "/admin/leads", label: "Leads", icon: "contact_mail" },
   { href: "/admin/messages", label: "Messages", icon: "mail", notif: "unreadMessages" },
   { href: "/admin/settings", label: "Settings", icon: "settings" },
