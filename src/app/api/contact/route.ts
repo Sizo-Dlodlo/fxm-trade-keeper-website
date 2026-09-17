@@ -1,6 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { db } from "@/lib/db";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export const dynamic = "force-dynamic";
 
@@ -10,6 +11,15 @@ const resendFrom =
 
 export async function POST(request: NextRequest) {
   try {
+    const ip = getClientIp(request);
+    const limit = checkRateLimit("contact", ip);
+    if (limit.blocked) {
+      return NextResponse.json(
+        { error: "Too many messages sent. Please wait before trying again." },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json();
     const { name, email, category, subject, message } = body;
 
@@ -49,7 +59,7 @@ export async function POST(request: NextRequest) {
           to: [toEmail],
           subject: `[FXM Contact] ${subject}`,
           html: `
-            <h2>New contact message — ${category || "General"}</h2>
+            <h2>New contact message â€” ${category || "General"}</h2>
             <p><strong>Name:</strong> ${escapeHtml(name)}</p>
             <p><strong>Email:</strong> ${escapeHtml(email)}</p>
             <p><strong>Category:</strong> ${escapeHtml(category || "General")}</p>

@@ -2,6 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { SignJWT } from "jose";
 import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
+import {
+  checkRateLimit,
+  getClientIp,
+  resetRateLimit,
+} from "@/lib/rate-limit";
 
 const secret = new TextEncoder().encode(
   process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET
@@ -9,6 +14,16 @@ const secret = new TextEncoder().encode(
 
 export async function POST(request: NextRequest) {
   try {
+    const ip = getClientIp(request);
+
+    const limit = checkRateLimit("login", ip);
+    if (limit.blocked) {
+      return NextResponse.json(
+        { error: "Too many login attempts. Please wait before trying again." },
+        { status: 429 }
+      );
+    }
+
     const { email, password } = await request.json();
 
     if (!email || !password) {

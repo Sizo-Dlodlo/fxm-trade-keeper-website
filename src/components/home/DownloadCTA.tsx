@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { APP_URL } from "@/lib/site";
 
 export default function DownloadCTA() {
   return (
@@ -10,17 +11,20 @@ export default function DownloadCTA() {
             Ready to Take Control of Your Trading?
           </h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-2xl mx-auto">
-            Download FXM Trade Keeper for free. Available for Windows and
-            macOS. No account required.
+            Try the free web app — it works on Windows, macOS, Android and
+            iPhone, offline, with no downloads and no warnings. Native desktop
+            downloads also available for advanced users.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/download"
+            <a
+              href={APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-primary text-on-primary font-headline-md text-base px-8 py-4 rounded shadow-[0_0_20px_rgba(118,219,150,0.2)] hover:shadow-[0_0_30px_rgba(118,219,150,0.4)] hover:brightness-110 transition-all flex items-center justify-center gap-2"
             >
-              <span className="material-symbols-outlined">download</span>
-              Download Free
-            </Link>
+              <span className="material-symbols-outlined">install_desktop</span>
+              Try the Free Web App
+            </a>
             <Link
               href="/features"
               className="bg-transparent border border-surface-stroke text-on-surface font-headline-md text-base px-8 py-4 rounded hover:bg-surface-container transition-colors flex items-center justify-center gap-2"
@@ -29,6 +33,13 @@ export default function DownloadCTA() {
               Learn More
             </Link>
           </div>
+          <p className="font-label-mono text-label-mono text-text-dimmed text-xs mt-4">
+            Desktop download options:{" "}
+            <Link href="/download#portable" className="text-primary">
+              Portable
+            </Link>{" "}
+            · <Link href="/download#mac" className="text-primary">macOS</Link>
+          </p>
         </div>
       </div>
     </section>

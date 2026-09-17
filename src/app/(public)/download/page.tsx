@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import DownloadCards from "@/components/download/DownloadCards";
 
 export const metadata: Metadata = {
-  title: "Download",
+  title: "Download FXM Trade Keeper — Free",
   description:
-    "Download FXM Trade Keeper for free. Available for Windows (Installer or Portable Edition) and macOS. No account required.",
+    "Install FXM Trade Keeper for free — no downloads, no security warnings. Works on Windows, macOS, Android and iPhone, fully offline. Native desktop installers also available.",
 };
 
 export default function DownloadPage() {
@@ -13,13 +13,15 @@ export default function DownloadPage() {
       {/* Hero */}
       <header className="mb-8">
         <h1 className="font-display-xl text-display-xl-mobile md:text-display-xl text-on-background mb-4">
-          Secure your setup.<br />
-          <span className="text-primary">Download Version 2.0.0</span>
+          Install in one click.<br />
+          <span className="text-primary">No downloads. No warnings.</span>
         </h1>
         <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-          Choose the installation method that best fits your trading
-          environment. Built for Windows and macOS with institutional-grade
-          security in mind.
+          The recommended option is the free web app: it installs directly
+          from this site like a normal application — with an icon, its own
+          window and full offline access — on Windows, macOS, Android and
+          iPhone. Native desktop downloads remain available below for
+          advanced users.
         </p>
       </header>
 

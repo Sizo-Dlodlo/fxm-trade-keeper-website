@@ -29,6 +29,7 @@ export async function GET() {
       macUrl: release.macUrl,
       macSize: release.macSize,
       macSha256: release.macSha256,
+      pwaUrl: release.pwaUrl,
       changelog: release.changelog,
     });
   } catch {

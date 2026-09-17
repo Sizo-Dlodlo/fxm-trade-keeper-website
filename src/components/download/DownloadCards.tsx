@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import WebAppCard from "./WebAppCard";
+import SecurityNotes from "./SecurityNotes";
 
 export default function DownloadCards() {
   const [copiedInstaller, setCopiedInstaller] = useState(false);
@@ -54,6 +56,28 @@ export default function DownloadCards() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+      {/* Web App (PWA) — primary install path */}
+      <WebAppCard />
+      <SecurityNotes />
+
+      {/* Desktop downloads — secondary */}
+      <div className="lg:col-span-12">
+        <div className="flex items-center gap-3 mb-1">
+          <span className="material-symbols-outlined text-text-dimmed text-[22px]">
+            desktop_windows
+          </span>
+          <h2 className="font-headline-md text-headline-md text-on-surface">
+            Prefer a standalone desktop app?
+          </h2>
+        </div>
+        <p className="font-body-md text-body-md text-on-surface-variant mb-4">
+          The classic download options below install a native application to
+          your computer. They work perfectly, but Windows and macOS will show
+          a one-time security warning — see the Security &amp; Trust Notes
+          above.
+        </p>
+      </div>
+
       {/* Download Cards */}
       <div className="lg:col-span-8 flex flex-col gap-gutter">
         {/* Windows Installer */}
@@ -74,7 +98,7 @@ export default function DownloadCards() {
               </p>
               <div className="flex flex-wrap gap-4 font-label-mono text-label-mono text-text-dimmed">
                 <span>FXM-TradeKeeper-Setup-2.0.0.exe</span>
-                <span>~76.4 MB</span>
+                <span>~76.2 MB</span>
                 <span className="bg-primary/10 text-primary px-2 py-0.5 rounded text-xs">
                   RECOMMENDED
                 </span>
@@ -113,7 +137,7 @@ export default function DownloadCards() {
               </p>
               <div className="flex flex-wrap gap-4 font-label-mono text-label-mono text-text-dimmed">
                 <span>FXM-TradeKeeper-2.0.0-Portable.exe</span>
-                <span>~76.2 MB</span>
+                <span>~76.0 MB</span>
               </div>
             </div>
             <a
@@ -155,8 +179,8 @@ export default function DownloadCards() {
                 </span>
               </div>
               <p className="font-body-md text-body-md text-on-surface-variant text-sm mt-3">
-                Unzip, drag "FXM Trade Keeper" to Applications, then on first
-                launch right-click the app and choose "Open".
+                Unzip, drag “FXM Trade Keeper” to Applications, then on first
+                launch right-click the app and choose “Open”.
               </p>
             </div>
             <a
@@ -200,8 +224,8 @@ export default function DownloadCards() {
                 </span>
               </div>
               <p className="font-body-md text-body-md text-on-surface-variant text-sm mt-3">
-                Unzip, drag "FXM Trade Keeper" to Applications, then on first
-                launch right-click the app and choose "Open".
+                Unzip, drag “FXM Trade Keeper” to Applications, then on first
+                launch right-click the app and choose “Open”.
               </p>
             </div>
             <a
@@ -233,7 +257,7 @@ export default function DownloadCards() {
               </div>
               <p className="font-body-md text-body-md text-on-surface-variant mb-2">
                 Simple, non-technical steps to install and open FXM Trade
-                Keeper on your Mac, including the "unidentified developer"
+                Keeper on your Mac, including the “unidentified developer”
                 step.
               </p>
               <div className="flex flex-wrap gap-4 font-label-mono text-label-mono text-text-dimmed">
@@ -264,7 +288,7 @@ export default function DownloadCards() {
             {[
               { label: "Version", value: "2.0.0" },
               { label: "Release Date", value: "August 26, 2026" },
-              { label: "Platform", value: "Windows 10/11 + macOS" },
+              { label: "Platform", value: "Windows · macOS · Android · iPhone" },
               { label: "Windows Arch", value: "x64" },
               { label: "Mac Arch", value: "Intel x64 + Apple Silicon (M-series)" },
               { label: "Price", value: "Free" },
@@ -374,18 +398,18 @@ export default function DownloadCards() {
             {[
               {
                 step: "1",
-                title: "Download",
-                desc: "Choose Installer or Portable",
+                title: "Open",
+                desc: "Web app — nothing to download",
               },
               {
                 step: "2",
-                title: "Verify",
-                desc: "Optional: verify SHA-256 checksum",
+                title: "Install",
+                desc: "One click to pin to your device",
               },
               {
                 step: "3",
-                title: "Run",
-                desc: "Launch and start journaling",
+                title: "Journal",
+                desc: "Start tracking instantly, even offline",
               },
             ].map((item) => (
               <div key={item.step} className="flex items-start gap-3">

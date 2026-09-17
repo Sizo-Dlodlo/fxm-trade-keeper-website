@@ -1,8 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function POST(request: NextRequest) {
   try {
+    const ip = getClientIp(request);
+    const limit = checkRateLimit("download-track", ip);
+    if (limit.blocked) {
+      return NextResponse.json(
+        { error: "Too many requests. Please try again shortly." },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json();
     const { version, platform, source, timestamp } = body;
 
