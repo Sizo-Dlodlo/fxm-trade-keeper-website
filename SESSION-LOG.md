@@ -458,3 +458,217 @@ Modified:
 - Optional: wire the public DownloadCards page to the Release DB so admin
   edits drive the live downloads (deliberately deferred — "populate admin
   only" scope).
+
+---
+
+# Session 4 — PWA FXM Trade Keeper v2.0 Release: Web app as primary install option
+
+Session date: Thursday 17 September 2026
+Agent: opencode (Claude)
+Same project (fxm-trade-keeper-website). Companion PWA app is the `FXM Trade Keeper v2.0 App` at `https://app.fxmtradekeeper.com`.
+
+## 28. User Request
+
+"The live hosted website is now showing old web information not the New version with the PWA FXM Trade Keeper v2.0 app: https://fxm-trade-keeper-website.vercel.app/download"
+
+The website's `/download` page was still showing the old content (native downloads as primary). The new PWA-first version had been developed locally but never committed/pushed, so Vercel was serving the old committed version.
+
+## 29. Root Cause
+
+Per AGENTS.md: "Vercel deploys from GitHub commits only. Local file changes are invisible to Vercel."
+
+The working directory had 10 modified + 3 untracked files with the new PWA v2.0 download page, but none were in Git history. The last commit was `7599135` (admin dashboard cache headers fix).
+
+## 30. Local Changes Staged
+
+**Modified files (10):**
+- `.env.example` — updated env vars
+- `.gitignore` — updated ignores
+- `src/app/(public)/download/page.tsx` — new PWA-first download page
+- `src/app/api/auth/login/route.ts` — auth updates
+- `src/app/api/contact/route.ts` — contact form updates
+- `src/app/api/download-track/route.ts` — download tracking for PWA
+- `src/app/api/newsletter/route.ts` — newsletter updates
+- `src/app/api/releases/latest/route.ts` — latest release API
+- `src/components/download/DownloadCards.tsx` — new PWA card + desktop cards
+- `src/components/home/DownloadCTA.tsx` — updated CTA for PWA
+
+**New files (4):**
+- `SESSION-LOG.md` — this log
+- `src/components/download/SecurityNotes.tsx` — security/trust notes
+- `src/components/download/WebAppCard.tsx` — PWA install card (device-detecting, platform-specific install steps)
+- `src/lib/site.ts` — APP_URL / SITE_URL constants (`https://app.fxmtradekeeper.com`)
+
+## 31. Key Features in New Download Page
+
+- **Web App (PWA) as primary install path** — "Install in one click. No downloads. No warnings."
+- Device-detecting `WebAppCard` shows platform-specific install steps:
+  - Windows: Chrome/Edge address bar install icon
+  - macOS: Safari Share→Add to Dock, Chrome/Edge install icon
+  - Android: Chrome ⋮ menu → "Install app"
+  - iOS: Safari Share → "Add to Home Screen"
+- Works offline, no Google Play/App Store, no account, data stays on device
+- Native desktop downloads (Windows Installer, Portable, Mac Intel, Mac ARM) as secondary options
+- SHA-256 checksums for all artifacts
+- Release info sidebar with Quick Setup (3 steps: Open → Install → Journal)
+
+## 32. Deploy Actions
+
+1. `git add -A` — staged all 14 files
+2. `git commit -m "Release PWA FXM Trade Keeper v2.0 — Web app as primary install option with offline support, native downloads as secondary"`
+3. `git push origin master` — triggered Vercel auto-deploy
+
+## 33. Verification
+
+- Vercel build triggered automatically on push
+- Expected live in ~1-2 minutes at https://fxm-trade-keeper-website.vercel.app/download
+- User confirmed: "Its now ok."
+
+## 34. Chat History (condensed)
+
+| # | Who | Exchange | Action |
+|---|---|---|---|
+| 1 | User | "The website is now showing old web information not the New version with the PWA FXM Trade Keeper v2.0 app" | Agent checked git status — found 14 uncommitted files with PWA v2.0 changes |
+| 2 | Agent | Explained root cause: Vercel deploys from GitHub only; local changes invisible | Proposed deploy via commit + push |
+| 3 | User | "Please do everything for me. I am a none technical person" | Agent executed full deploy: add, commit, push |
+| 4 | User | "Its now ok. Please document this progress and chat history" | This entry appended |
+
+## 35. Deployment State (2026-09-17)
+
+| Commit | Work | Deploy |
+|---|---|---|
+| `a036eef` | Release PWA FXM Trade Keeper v2.0 — Web app primary, native secondary | Prod, verified |
+
+- Live: `/download` now shows PWA web app as recommended install option
+- PWA URL: `https://app.fxmtradekeeper.com` (from `src/lib/site.ts`)
+- All download tracking routes updated for PWA platforms (`PWA-WebApp`, `PWA-Android`)
+- Admin dashboard cache headers fix from `7599135` included
+
+---
+
+# Session 5 — Vercel deployment storage limit (10 GB) hit: move Windows exes off the deploy
+
+Session date: Friday 18 September 2026
+Agent: opencode (Claude)
+Same project (fxm-trade-keeper-website).
+
+## 36. User Request
+
+User forwarded Vercel's usage email and asked what it meant for the website,
+then asked to (1) check what's using deployment storage and (2) clean up old
+deployments:
+
+> "Your site is growing! Your free team sizodlo-6324 has used 100% of the
+> included free tier usage for Deployment Storage (10 GB). Upgrade to Pro."
+
+Confirmed scope choices: **delete old deployments keeping only the current
+live one**, and **host the Windows installers on GitHub Releases**.
+
+## 37. Root Cause
+
+The two Windows installer binaries lived in `public/downloads/` and were
+copied into **every** Vercel deployment:
+
+- `public/downloads/FXM-TradeKeeper-Setup-2.0.0.exe` — **76.16 MB**
+- `public/downloads/FXM-TradeKeeper-2.0.0-Portable.exe` — **75.96 MB**
+- Everything else (app + screenshots) — ~2 MB
+
+`.vercelignore` even carried an explicit keep-note: *"public/downloads/*.exe
+must NOT be ignored — they are served on the site."* With **57 deployments**
+accumulated (daily deploys since the site launched), ~152 MB × ~60 ≈ **9+ GB**
+blew through the 10 GB free limit.
+
+The two macOS zips were already hosted externally (Google Drive links);
+only the Windows exes were self-hosted.
+
+## 38. Part 1 — Vercel cleanup (keep only current live)
+
+1. Re-authenticated the Vercel CLI (`npx vercel login` — browser device flow).
+2. Identified the current live production deployment via
+   `npx vercel inspect https://fxm-trade-keeper-website.vercel.app --json`
+   → `dpl_5D7KFDUXdnXqSgM8A7rVeS2hDcYP`
+   (`...-3znnu4qy8-...`) — the one to keep.
+3. Built the delete list from `npx vercel ls --limit 100 --json`
+   (57 deployments total → 56 to remove), sanity-checked keep-vs-delete,
+   then `npx vercel remove <urls> --yes` → **"Success! Removed 56"**.
+4. Only the live deployment remained; site verified **200**.
+5. After the small post-fix deploy (below), removed the old pre-fix
+   deployment too (`3znnu4qy8`, ~152 MB of exes) — hallway check:
+   `vercel inspect fxm-trade-keeper-website.vercel.app` confirmed the new
+   deployment was aliased first.
+
+## 39. Part 2 — Host exes on GitHub Releases (prevent recurrence)
+
+1. Created release **`v2.0.0-desktop-exes`** on
+   `Sizo-Dlodlo/fxm-trade-keeper-website` and uploaded both exes
+   (verified: Portable 76.0 MB, Setup 76.2 MB).
+2. `src/components/download/DownloadCards.tsx` — both Windows
+   `href`s changed from `/downloads/...exe` to the GitHub asset URLs
+   (with `target="_blank" rel="noopener noreferrer"`, mirroring the Mac
+   card pattern). `onClick` tracking unchanged.
+3. Deleted both exes from `public/downloads/` (only the tiny Mac guide PDF
+   remains). `public/` dropped **154 MB → 2 MB**.
+4. Updated the stale `.vercelignore` comment to document the change.
+5. `npm run build` → green.
+
+## 40. Commit + Deploy + Live Verification
+
+- Commit **`10983a3`** "Host Windows exe downloads on GitHub Releases to fix
+  Vercel deployment storage limit" (4 files: `.vercelignore`, DownloadCards,
+  2 exe deletions; pre-existing `SESSION-LOG.md` uncommitted edits left out
+  of this commit) → pushed `master` → Vercel auto-deploy.
+- Production deploy **`83ut4o508`** (Ready ~56s), now the live alias.
+- Live checks:
+  - `https://fxm-trade-keeper-website.vercel.app` → **200** ✅
+  - `/download` → **200**, page contains the new GitHub release links ✅
+  - `https://github.com/.../v2.0.0-desktop-exes/FXM-TradeKeeper-Setup-2.0.0.exe`
+    → **200**, Content-Length 79,856,356 B (~76 MB) ✅
+- Storage math: ~155 MB/deployment → **~2–4 MB/deployment** →
+  the 10 GB free allowance now lasts ~75× longer.
+
+## 41. Admin Release DB records synced (follow-up)
+
+- Found one Release row (`v2.0.0`, id `cmtcl8yol0005v818tttia47w`) still
+  pointing at the old local paths:
+  - `installerUrl: /downloads/FXM-TradeKeeper-Setup-2.0.0.exe`
+  - `portableUrl: /downloads/FXM-TradeKeeper-2.0.0-Portable.exe`
+- Updated both to the `v2.0.0-desktop-exes` GitHub asset URLs via a
+  throwaway Prisma script (copy-in → run → removed). Direct
+  `DATABASE_URL_UNPOOLED` connection used per AGENTS.md; added
+  `connect_timeout=20` to survive Neon free-tier scale-to-zero cold starts.
+- Mac (Google Drive) URLs unchanged — already external.
+- DB-only change → no commit/deploy required.
+
+## 42. Chat History (condensed)
+
+| # | Who | Exchange | Action |
+|---|---|---|---|
+| 1 | Vercel | Usage email: 100% of 10 GB deployment storage used | Explained: free tier limit, current site unaffected, new deploys blocked until space freed or upgrade |
+| 2 | User | "Check the Vercel project + help clean up old deployments" | Diagnosed root cause (152 MB exes in every deploy); audited public/ + .next sizes; found 57 deployments |
+| 3 | User | Choices: keep only current live; GitHub Releases hosting | Deleted 56 old deployments (kept live, kept `3znnu4qy8` until new deploy), re-authed CLI |
+| 4 | User | "go ahead" | Created `v2.0.0-desktop-exes` release, uploaded exes, updated DownloadCards hrefs, removed exes from public/, fixed .vercelignore, committed `10983a3`, pushed → deploys `83ut4o508` |
+| 5 | Agent | Live verification passed; user asked to sync admin release records | Updated DB `installerUrl`/`portableUrl` to GitHub URLs via throwaway script |
+| 6 | User | "Please document this progress and save chat history" | This entry (Session 5) appended |
+
+## 43. Deployment / live state (2026-09-18)
+
+| Commit | Work | Deploy |
+|---|---|---|
+| `10983a3` | Windows exes → GitHub Releases; Vercel storage freed | Prod `83ut4o508`, verified |
+
+- Live: only **1 deployment** on the project; site + `/download` 200; Windows
+  downloads served from GitHub release `v2.0.0-desktop-exes`.
+- Admin → Releases v2.0.0 record windows URLs point at GitHub.
+- Free storage should read well under 10 GB in the Vercel dashboard
+  (Usage → Storage) once the meter refreshes.
+
+## 44. Next Steps / Notes
+
+- **Do NOT re-add installer binaries to `public/`** — that is what filled
+  deployment storage. Future binary swaps = update the GitHub release
+  assets, re-verify SHA-256 base64 + MB labels in `DownloadCards.tsx`.
+- Optional: wire the public DownloadCards page to the Release DB (deferred
+  earlier) so admin edits drive the live downloads — revisit if download
+  URLs change again.
+- Vercel CLI re-auth note: `vercel login` stored credentials anew; the old
+  token had expired silently (the CLI reported "Logged out" until re-login).
