@@ -105,8 +105,9 @@ export default function DownloadCards() {
               </div>
             </div>
             <a
-              href="/downloads/FXM-TradeKeeper-Setup-2.0.0.exe"
-              download
+              href="https://github.com/Sizo-Dlodlo/fxm-trade-keeper-website/releases/download/v2.0.0-desktop-exes/FXM-TradeKeeper-Setup-2.0.0.exe"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => trackDownload("Windows-x64-Installer")}
               className="bg-primary text-on-primary font-headline-md text-base px-8 py-4 rounded shadow-[0_0_20px_rgba(118,219,150,0.2)] hover:shadow-[0_0_30px_rgba(118,219,150,0.4)] hover:brightness-110 transition-all flex items-center justify-center gap-2 whitespace-nowrap relative z-10"
             >
@@ -141,8 +142,9 @@ export default function DownloadCards() {
               </div>
             </div>
             <a
-              href="/downloads/FXM-TradeKeeper-2.0.0-Portable.exe"
-              download
+              href="https://github.com/Sizo-Dlodlo/fxm-trade-keeper-website/releases/download/v2.0.0-desktop-exes/FXM-TradeKeeper-2.0.0-Portable.exe"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => trackDownload("Windows-x64-Portable")}
               className="bg-transparent border border-surface-stroke text-on-surface font-headline-md text-base px-8 py-4 rounded hover:bg-surface-container transition-colors flex items-center justify-center gap-2 whitespace-nowrap relative z-10"
             >

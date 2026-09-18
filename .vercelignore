@@ -1,5 +1,6 @@
 # Prevent secret-bearing env files and build artifacts from being uploaded.
-# NOTE: public/downloads/*.exe must NOT be ignored - they are served on the site.
+# NOTE: Windows .exe installers are hosted on GitHub Releases (v2.0.0-desktop-exes),
+# not in public/ — hosting them here inflated Vercel deployment storage.
 .env
 .env.local
 .env.*.local
