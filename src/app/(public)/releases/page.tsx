@@ -9,6 +9,21 @@ export const metadata: Metadata = {
 
 const releases = [
   {
+    version: "2.0.1",
+    date: "November 4, 2026",
+    stable: true,
+    new: [
+      "Accounts Filter & Sort — show/hide by Active, Breached, Profitable, At a Loss, Month, Pro Firm / Personal Funds and Broker Name",
+      "CFD market type in the Risk Management Center",
+      "Confirm New Trade dialog before an entry is saved to the journal",
+      "Instant startup — your accounts and journal populate as soon as the app opens",
+    ],
+    improved: [
+      "Faster first paint with async database hydration",
+      "Consistent cache-busted asset loading",
+    ],
+  },
+  {
     version: "2.0.0",
     date: "August 26, 2026",
     stable: true,

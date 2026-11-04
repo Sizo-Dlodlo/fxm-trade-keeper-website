@@ -11,9 +11,9 @@ export default function DownloadCards() {
   const [copiedMacArm, setCopiedMacArm] = useState(false);
 
   const installerSha =
-    "avxsTnINq37gPc5TYXGJwx9o0/86Mb8SgnyPfSPVddE=";
+    "30uM8mkYGHEDL49wcxhQsfZ/NCJmCDVl8k7o50Nn+54=";
   const portableSha =
-    "v3Z3kgDnJHKiy7g/m/2x2TY/w7UGTiCcYz2Sdfetc4Q=";
+    "7r/wS4ZwQffc8eolS0l6HgF+x/npCVcFFmAF7bNT2Qs=";
   const macIntelSha =
     "7mvWVG7Oe8P1f4yNiPucmloPPexruF/15019v4IFqXc=";
   const macArmSha =
@@ -44,7 +44,7 @@ export default function DownloadCards() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        version: "2.0.0",
+        version: "2.0.1",
         platform,
         source:
           typeof window !== "undefined"
@@ -97,7 +97,7 @@ export default function DownloadCards() {
                 Standard Windows installation. Recommended for most users.
               </p>
               <div className="flex flex-wrap gap-4 font-label-mono text-label-mono text-text-dimmed">
-                <span>FXM-TradeKeeper-Setup-2.0.0.exe</span>
+                <span>FXM-TradeKeeper-Setup-2.0.1.exe</span>
                 <span>~76.2 MB</span>
                 <span className="bg-primary/10 text-primary px-2 py-0.5 rounded text-xs">
                   RECOMMENDED
@@ -105,7 +105,7 @@ export default function DownloadCards() {
               </div>
             </div>
             <a
-              href="https://github.com/Sizo-Dlodlo/fxm-trade-keeper-website/releases/download/v2.0.0-desktop-exes/FXM-TradeKeeper-Setup-2.0.0.exe"
+              href="https://github.com/Sizo-Dlodlo/fxm-trade-keeper-website/releases/download/v2.0.1-desktop-exes/FXM-TradeKeeper-Setup-2.0.1.exe"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackDownload("Windows-x64-Installer")}
@@ -137,12 +137,12 @@ export default function DownloadCards() {
                 No installation required. Extract and run from any location.
               </p>
               <div className="flex flex-wrap gap-4 font-label-mono text-label-mono text-text-dimmed">
-                <span>FXM-TradeKeeper-2.0.0-Portable.exe</span>
+                <span>FXM-TradeKeeper-2.0.1-Portable.exe</span>
                 <span>~76.0 MB</span>
               </div>
             </div>
             <a
-              href="https://github.com/Sizo-Dlodlo/fxm-trade-keeper-website/releases/download/v2.0.0-desktop-exes/FXM-TradeKeeper-2.0.0-Portable.exe"
+              href="https://github.com/Sizo-Dlodlo/fxm-trade-keeper-website/releases/download/v2.0.1-desktop-exes/FXM-TradeKeeper-2.0.1-Portable.exe"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackDownload("Windows-x64-Portable")}
@@ -288,8 +288,8 @@ export default function DownloadCards() {
           </h4>
           <div className="space-y-3">
             {[
-              { label: "Version", value: "2.0.0" },
-              { label: "Release Date", value: "August 26, 2026" },
+              { label: "Version", value: "2.0.1" },
+              { label: "Release Date", value: "November 4, 2026" },
               { label: "Platform", value: "Windows · macOS · Android · iPhone" },
               { label: "Windows Arch", value: "x64" },
               { label: "Mac Arch", value: "Intel x64 + Apple Silicon (M-series)" },
