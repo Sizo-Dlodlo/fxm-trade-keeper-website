@@ -124,7 +124,7 @@ export default function WebAppCard() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        version: "2.0.1",
+        version: "2.0.2",
         platform,
         source:
           typeof window !== "undefined"

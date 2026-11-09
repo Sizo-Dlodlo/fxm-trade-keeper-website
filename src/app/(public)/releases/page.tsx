@@ -9,6 +9,21 @@ export const metadata: Metadata = {
 
 const releases = [
   {
+    version: "2.0.2",
+    date: "November 9, 2026",
+    stable: true,
+    new: [
+      "Journal Export menu — download your filtered trade history as Excel, PDF, Word or CSV",
+      "Real notification, startup and interaction sounds, each with its own sound picker and on/off switch",
+      "Choose the folder for automatic backups and export save dialogs (Settings > Data & Storage)",
+    ],
+    improved: [
+      "Fixed duplicate trade IDs that could appear after importing journals",
+      "Fixed false AT RISK badges — close to a profit target is no longer a warning, and risk badges now explain what triggered them",
+      "Ollama AI connects reliably from the desktop app now, with clear error messages and one shared configuration",
+    ],
+  },
+  {
     version: "2.0.1",
     date: "November 4, 2026",
     stable: true,

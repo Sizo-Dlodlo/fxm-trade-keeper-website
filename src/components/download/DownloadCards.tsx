@@ -44,7 +44,7 @@ export default function DownloadCards() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        version: "2.0.1",
+        version: "2.0.2",
         platform,
         source:
           typeof window !== "undefined"
@@ -97,7 +97,7 @@ export default function DownloadCards() {
                 Standard Windows installation. Recommended for most users.
               </p>
               <div className="flex flex-wrap gap-4 font-label-mono text-label-mono text-text-dimmed">
-                <span>FXM-TradeKeeper-Setup-2.0.1.exe</span>
+                <span>FXM-TradeKeeper-Setup-2.0.2.exe</span>
                 <span>~76.2 MB</span>
                 <span className="bg-primary/10 text-primary px-2 py-0.5 rounded text-xs">
                   RECOMMENDED
@@ -105,7 +105,7 @@ export default function DownloadCards() {
               </div>
             </div>
             <a
-              href="https://github.com/Sizo-Dlodlo/fxm-trade-keeper-website/releases/download/v2.0.1-desktop-exes/FXM-TradeKeeper-Setup-2.0.1.exe"
+              href="https://github.com/Sizo-Dlodlo/fxm-trade-keeper-website/releases/download/v2.0.2-desktop-exes/FXM-TradeKeeper-Setup-2.0.2.exe"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackDownload("Windows-x64-Installer")}
@@ -137,12 +137,12 @@ export default function DownloadCards() {
                 No installation required. Extract and run from any location.
               </p>
               <div className="flex flex-wrap gap-4 font-label-mono text-label-mono text-text-dimmed">
-                <span>FXM-TradeKeeper-2.0.1-Portable.exe</span>
+                <span>FXM-TradeKeeper-2.0.2-Portable.exe</span>
                 <span>~76.0 MB</span>
               </div>
             </div>
             <a
-              href="https://github.com/Sizo-Dlodlo/fxm-trade-keeper-website/releases/download/v2.0.1-desktop-exes/FXM-TradeKeeper-2.0.1-Portable.exe"
+              href="https://github.com/Sizo-Dlodlo/fxm-trade-keeper-website/releases/download/v2.0.2-desktop-exes/FXM-TradeKeeper-2.0.2-Portable.exe"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackDownload("Windows-x64-Portable")}
@@ -288,7 +288,7 @@ export default function DownloadCards() {
           </h4>
           <div className="space-y-3">
             {[
-              { label: "Version", value: "2.0.1" },
+              { label: "Version", value: "2.0.2" },
               { label: "Release Date", value: "November 4, 2026" },
               { label: "Platform", value: "Windows · macOS · Android · iPhone" },
               { label: "Windows Arch", value: "x64" },

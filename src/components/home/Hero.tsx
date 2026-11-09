@@ -10,7 +10,7 @@ export default function Hero() {
         {/* Version Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-primary font-label-mono text-label-mono mb-4">
           <span className="w-2 h-2 rounded-full bg-data-up animate-pulse" />
-          V 2.0.1 NOW AVAILABLE
+          V 2.0.2 NOW AVAILABLE
         </div>
 
         {/* Headline */}
