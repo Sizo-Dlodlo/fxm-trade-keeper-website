@@ -11,9 +11,9 @@ export default function DownloadCards() {
   const [copiedMacArm, setCopiedMacArm] = useState(false);
 
   const installerSha =
-    "30uM8mkYGHEDL49wcxhQsfZ/NCJmCDVl8k7o50Nn+54=";
+    "P3SCpX79TfNzA6MXrcifAq5z1U7xd9Adhnxn9Ai3KX4=";
   const portableSha =
-    "7r/wS4ZwQffc8eolS0l6HgF+x/npCVcFFmAF7bNT2Qs=";
+    "4fDPAFf+sjcH1heO+aYYBNLRjZ6xtGUM2Bj7VYy2SnQ=";
   const macIntelSha =
     "7mvWVG7Oe8P1f4yNiPucmloPPexruF/15019v4IFqXc=";
   const macArmSha =
@@ -98,7 +98,7 @@ export default function DownloadCards() {
               </p>
               <div className="flex flex-wrap gap-4 font-label-mono text-label-mono text-text-dimmed">
                 <span>FXM-TradeKeeper-Setup-2.0.2.exe</span>
-                <span>~76.2 MB</span>
+                <span>~77.8 MB</span>
                 <span className="bg-primary/10 text-primary px-2 py-0.5 rounded text-xs">
                   RECOMMENDED
                 </span>
@@ -138,7 +138,7 @@ export default function DownloadCards() {
               </p>
               <div className="flex flex-wrap gap-4 font-label-mono text-label-mono text-text-dimmed">
                 <span>FXM-TradeKeeper-2.0.2-Portable.exe</span>
-                <span>~76.0 MB</span>
+                <span>~77.6 MB</span>
               </div>
             </div>
             <a
@@ -289,7 +289,7 @@ export default function DownloadCards() {
           <div className="space-y-3">
             {[
               { label: "Version", value: "2.0.2" },
-              { label: "Release Date", value: "November 4, 2026" },
+              { label: "Release Date", value: "November 9, 2026" },
               { label: "Platform", value: "Windows · macOS · Android · iPhone" },
               { label: "Windows Arch", value: "x64" },
               { label: "Mac Arch", value: "Intel x64 + Apple Silicon (M-series)" },
