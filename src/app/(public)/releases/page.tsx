@@ -9,9 +9,25 @@ export const metadata: Metadata = {
 
 const releases = [
   {
+    version: "2.0.3",
+    date: "November 21, 2026",
+    stable: false,
+    downloadsPending: true,
+    new: [
+      "Choose where every backup and journal export is saved, or save automatically to the configured backup folder",
+      "New user sound defaults: Notification 1 alerts, Guitar Alert startup sound played once per launch, and Pop 1 clicks",
+    ],
+    improved: [
+      "Fixed duplicate accounts and duplicate trades caused by repeated clicks or stacked confirmation dialogs",
+      "Fixed false BREACHED badges — drawdowns are recalculated from trade history using opening balance and worst trading day",
+      "Faster startup with the startup chime no longer waiting on database hydration",
+    ],
+  },
+  {
     version: "2.0.2",
     date: "November 9, 2026",
     stable: true,
+    downloadsPending: false,
     new: [
       "Journal Export menu — download your filtered trade history as Excel, PDF, Word or CSV",
       "Real notification, startup and interaction sounds, each with its own sound picker and on/off switch",
@@ -27,6 +43,7 @@ const releases = [
     version: "2.0.1",
     date: "November 4, 2026",
     stable: true,
+    downloadsPending: false,
     new: [
       "Accounts Filter & Sort — show/hide by Active, Breached, Profitable, At a Loss, Month, Pro Firm / Personal Funds and Broker Name",
       "CFD market type in the Risk Management Center",
@@ -42,6 +59,7 @@ const releases = [
     version: "2.0.0",
     date: "August 26, 2026",
     stable: true,
+    downloadsPending: false,
     new: [
       "Portable Edition — run without installation",
       "SQLite persistence for reliable data storage",
@@ -143,14 +161,29 @@ export default function ReleasesPage() {
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-surface-stroke/50">
-              <Link
-                href="/download"
-                className="bg-primary text-on-primary font-headline-md text-base px-6 py-3 rounded hover:brightness-110 transition-all inline-flex items-center gap-2"
-              >
-                <span className="material-symbols-outlined">download</span>
-                Download v{release.version}
-              </Link>
+            <div className="mt-8 pt-6 border-t border-surface-stroke/50 flex flex-col gap-3 items-start">
+              {release.downloadsPending ? (
+                <>
+                  <p className="font-body-md text-body-md text-on-surface-variant">
+                    v2.0.3 installer builds are not published yet. The current download remains v2.0.2.
+                  </p>
+                  <Link
+                    href="/download"
+                    className="bg-primary text-on-primary font-headline-md text-base px-6 py-3 rounded hover:brightness-110 transition-all inline-flex items-center gap-2"
+                  >
+                    <span className="material-symbols-outlined">download</span>
+                    Download current v2.0.2
+                  </Link>
+                </>
+              ) : (
+                <Link
+                  href="/download"
+                  className="bg-primary text-on-primary font-headline-md text-base px-6 py-3 rounded hover:brightness-110 transition-all inline-flex items-center gap-2"
+                >
+                  <span className="material-symbols-outlined">download</span>
+                  Download v{release.version}
+                </Link>
+              )}
             </div>
           </div>
         ))}

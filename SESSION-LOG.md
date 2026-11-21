@@ -672,3 +672,14 @@ only the Windows exes were self-hosted.
   URLs change again.
 - Vercel CLI re-auth note: `vercel login` stored credentials anew; the old
   token had expired silently (the CLI reported "Logged out" until re-login).
+
+## 45. v2.0.3 release notes (2026-11-21)
+
+- Added a v2.0.3 entry to the public Release Notes page covering the
+  duplicate-save, drawdown-status, save-location, startup-sound, and sound
+  default fixes.
+- v2.0.3 desktop installer/portable binaries, URLs, sizes, and checksums have
+  not been published. The hero badge, download cards, and download telemetry
+  remain on the verified v2.0.2 release; the v2.0.3 release card clearly links
+  to the current v2.0.2 download.
+- Pushing this commit triggers the normal Vercel production deploy.
