@@ -683,3 +683,27 @@ only the Windows exes were self-hosted.
   remain on the verified v2.0.2 release; the v2.0.3 release card clearly links
   to the current v2.0.2 download.
 - Pushing this commit triggers the normal Vercel production deploy.
+
+## 46. v2.0.3 propagation and verification (2026-11-21)
+
+- Website commit `366e69f docs: publish v2.0.3 release notes` was pushed to
+  `origin/master`; Vercel auto-deploy follows the standard workflow.
+- Companion commits: desktop `8836794` (`origin/main`) and PWA `ef3f2f5`
+  (`origin/master`).
+- Downloadable assets remain v2.0.2: no v2.0.3 installer/portable files, URLs,
+  sizes, or checksums were supplied, so the hero, download cards, and download
+  telemetry were intentionally left unchanged.
+- Verification: `npm run lint` finished with 0 errors and 6 pre-existing
+  warnings; `npm run build` compiled, passed TypeScript, and generated all
+  routes; `git diff --check` was clean.
+- Final website repo state: clean at the pushed commit.
+
+## 47. Chat history (2026-11-21)
+
+| # | Who | Exchange | Action |
+|---|---|---|---|
+| 1 | User | "Please push and commit the new changes to the website and git" | Checked all worktrees; desktop was already pushed, website and PWA had no pending commits at that point, so asked which updates to publish. |
+| 2 | User | Selected website v2.0.3 and PWA v2.0.3 updates | Audited release metadata, download links, PWA version strings, and repo deployment rules before editing. |
+| 3 | User | Selected "Keep v2.0.2 downloads" | Published v2.0.3 release notes with a pending-installers notice while preserving verified v2.0.2 links and checksums. |
+| 4 | Assistant | PWA port | Applied desktop v2.0.3 fixes to the PWA, added submit-guard and regression tests, bumped version/cache, verified tests, committed, and pushed. |
+| 5 | User | "Please document the progress made and save the chat history" | Appended this section plus matching final sections in the desktop and PWA logs. |
